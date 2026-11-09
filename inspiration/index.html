@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>inspiration</title>
+<meta name="description" content="inspiration, collected by sudolabel.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="inspiration">
+<meta property="og:description" content="inspiration, collected by sudolabel.">
+<meta property="og:url" content="https://sudolabel.xyz/inspiration/">
+<meta property="og:image" content="https://sudolabel.xyz/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sudolabel">
+
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/anybody-100-900-italic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Anybody";src:url(/fonts/anybody-100-900.woff2) format("woff2");font-weight:100 900;font-stretch:50% 150%;font-display:swap}
+@font-face{font-family:"Anybody";src:url(/fonts/anybody-100-900-italic.woff2) format("woff2");font-weight:100 900;font-stretch:50% 150%;font-style:italic;font-display:block}
+@font-face{font-family:"Instrument Sans";src:url(/fonts/instrument-sans-400-700.woff2) format("woff2");font-weight:400 700;font-stretch:75% 100%;font-display:swap}
+:root{
+  --stone:#ebe5d6;--choc:#2b1a12;--green:#0a8036;
+  /* the green deepened for small figures, so they hold AA on the paper and on every stock */
+  --gink:#066329;--orange:#d96520;--ochre:#eeaa3a;--lilac:#a594cc;
+  --stock-lilac:#ddd5e6;--stock-sage:#d8dcc6;--stock-sand:#eadcc0;
+  --pad:40px;--wrap:1280px;--gut:max(var(--pad),calc((100vw - var(--wrap)) / 2));
+  --fast:cubic-bezier(.2,.7,.3,1);--snap:cubic-bezier(.3,0,.2,1);
+  --paper:0 1px 1px rgba(43,26,18,.12),0 3px 8px -4px rgba(43,26,18,.26);
+  --lift:0 1px 1px rgba(43,26,18,.1),0 18px 28px -16px rgba(43,26,18,.46),0 6px 12px -8px rgba(43,26,18,.24);
+  /* the shared row height follows the sheet width, so a composed row stays composed from 1040 to 1440 */
+  --rh:calc(min(var(--wrap),100vw - 2 * var(--pad)) * .195);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .1 0 0 0 0 .07 0 0 0 .55 -.18'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --weave:repeating-linear-gradient(0deg,rgba(43,26,18,.022) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(43,26,18,.018) 0 1px,transparent 1px 3px);
+  --u0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M1.5 5.2L5.5 5.4L9.5 5.7L13.5 5.8L17.5 5.8L21.5 5.8L25.5 5.8L29.5 5.9L33.5 5.9L37.5 5.8L41.5 5.7L45.5 5.8L49.5 5.8L53.5 5.9L57.5 5.9L61.5 6L65.5 6.1L69.5 6.1L73.5 6.2L77.5 6.2L81.5 6.3L85.5 6.5L89.5 6.5L93.5 6.6L97.5 6.8L101.5 6.8L105.5 6.9L109.5 6.9L113.5 6.8L117.5 6.9L121.5 6.9L125.5 6.9L129.5 6.9L133.5 6.8L137.5 6.7L141.5 6.5L145.5 6.4L149.5 6.2L153.5 6.1L157.5 6.1L161.5 6.1L165.5 6.2L169.5 6.2L173.5 6.2L177.5 6.2L181.5 6.3L185.5 6.5L189.5 6.3L193.5 6.1L197.5 5.9L197.5 5.3L193.5 5L189.5 4.6L185.5 4.5L181.5 4.4L177.5 4.4L173.5 4.4L169.5 4.4L165.5 4.4L161.5 4.4L157.5 4.5L153.5 4.6L149.5 4.7L145.5 4.7L141.5 4.8L137.5 4.7L133.5 4.6L129.5 4.5L125.5 4.5L121.5 4.3L117.5 4.3L113.5 4.2L109.5 4.3L105.5 4.2L101.5 4.2L97.5 4.2L93.5 4.2L89.5 4.2L85.5 4.3L81.5 4.2L77.5 4.2L73.5 4.1L69.5 4L65.5 4L61.5 3.8L57.5 3.8L53.5 3.9L49.5 3.9L45.5 4.1L41.5 4.1L37.5 4.1L33.5 4.2L29.5 4.3L25.5 4.2L21.5 4.3L17.5 4.2L13.5 4.1L9.5 4.2L5.5 4.3L1.5 4.5Z'/%3E%3C/svg%3E");--v0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M1.5 5.5L5.5 6L9.5 6.4L13.5 6.7L17.5 6.5L21.5 6.5L25.5 6.5L29.5 6.6L33.5 6.7L37.5 6.7L41.5 6.7L45.5 6.6L49.5 6.5L53.5 6.5L57.5 6.4L61.5 6.4L65.5 6.2L69.5 6.1L73.5 6L77.5 6L81.5 6L85.5 6.2L89.5 6.4L93.5 6.5L97.5 6.6L101.5 6.6L105.5 6.6L109.5 6.7L113.5 6.8L117.5 6.9L121.5 6.7L125.5 6.7L129.5 6.6L133.5 6.5L137.5 6.4L141.5 6.5L145.5 6.6L149.6 6.7L153.5 6.6L157.5 6.7L161.6 6.6L165.6 6.5L169.5 6.6L173.6 6.6L177.5 6.5L181.5 6.4L185.5 6.2L189.5 5.6L193.5 4.9L197.5 4.3L197.5 2.9L193.5 2.3L189.5 1.6L185.5 1L181.5 0.9L177.4 0.9L173.4 1L169.5 1.2L165.4 1.3L161.4 1.5L157.5 1.7L153.4 1.8L149.4 2L145.5 2.2L141.5 2.3L137.5 2.4L133.5 2.6L129.5 2.5L125.5 2.4L121.5 2.4L117.5 2.5L113.5 2.6L109.5 2.7L105.5 2.8L101.5 2.9L97.5 3L93.5 3.1L89.5 3.1L85.5 3.2L81.5 3.2L77.5 3.2L73.5 3.1L69.5 2.9L65.5 2.7L61.5 2.7L57.5 2.7L53.5 2.7L49.5 2.5L45.5 2.5L41.5 2.4L37.5 2.3L33.5 2.4L29.5 2.5L25.5 2.5L21.5 2.6L17.5 2.5L13.5 2.4L9.5 2.7L5.5 3.3L1.5 4Z'/%3E%3C/svg%3E");--u1:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M1.5 5.7L5.5 6L9.5 6.4L13.5 6.4L17.5 6.4L21.5 6.3L25.5 6.4L29.5 6.4L33.5 6.4L37.5 6.4L41.5 6.5L45.5 6.4L49.5 6.3L53.5 6.3L57.5 6.4L61.5 6.3L65.5 6.2L69.5 6.1L73.5 6.1L77.5 6L81.5 5.7L85.5 5.6L89.5 5.5L93.5 5.4L97.5 5.4L101.5 5.3L105.5 5.3L109.5 5.3L113.5 5.4L117.5 5.5L121.5 5.5L125.5 5.5L129.5 5.6L133.5 5.7L137.5 5.8L141.5 5.8L145.5 5.7L149.5 5.8L153.5 5.8L157.5 5.8L161.5 5.7L165.5 5.7L169.5 5.7L173.5 5.6L177.5 5.6L181.5 5.6L185.5 5.6L189.5 5.3L193.5 4.9L197.5 4.4L197.5 3.6L193.5 3.5L189.5 3.2L185.5 3.1L181.5 3.1L177.5 3.2L173.5 3.3L169.5 3.5L165.5 3.5L161.5 3.5L157.5 3.5L153.5 3.6L149.5 3.5L145.5 3.5L141.5 3.6L137.5 3.7L133.5 3.7L129.5 3.7L125.5 3.7L121.5 3.8L117.5 3.8L113.5 3.8L109.5 3.8L105.5 3.8L101.5 3.9L97.5 3.9L93.5 3.8L89.5 3.8L85.5 3.7L81.5 3.6L77.5 3.7L73.5 3.7L69.5 3.7L65.5 3.8L61.5 3.9L57.5 4L53.5 3.9L49.5 3.9L45.5 3.9L41.5 4L37.5 4L33.5 4L29.5 4L25.5 4L21.5 4L17.5 4L13.5 3.9L9.5 4.3L5.5 4.6L1.5 5Z'/%3E%3C/svg%3E");--v1:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M1.5 6.1L5.5 6.8L9.5 7.3L13.5 7.9L17.5 7.9L21.5 7.9L25.5 7.9L29.5 8L33.5 7.9L37.5 7.7L41.5 7.7L45.5 7.7L49.5 7.8L53.5 7.9L57.5 8.1L61.6 8L65.5 7.9L69.5 7.8L73.6 7.8L77.6 7.6L81.5 7.5L85.5 7.5L89.5 7.4L93.5 7.1L97.5 7L101.5 7L105.5 6.9L109.5 6.9L113.5 7.1L117.5 7.1L121.5 7.2L125.5 7L129.5 6.9L133.5 6.8L137.5 6.8L141.5 6.7L145.5 6.6L149.5 6.4L153.5 6.2L157.5 6L161.5 5.9L165.5 6L169.6 6L173.5 6L177.6 6.1L181.6 6L185.5 6L189.5 5.6L193.5 5L197.5 4.5L197.5 3.2L193.5 2.7L189.5 2.3L185.5 1.9L181.4 2L177.4 2.3L173.4 2.5L169.4 2.8L165.5 3.1L161.5 3.2L157.5 3.2L153.5 3.2L149.5 3.2L145.5 3.2L141.5 3.2L137.5 3.1L133.5 3.1L129.5 3L125.5 3L121.5 3L117.5 2.9L113.5 3.1L109.5 3.1L105.5 3.1L101.5 3.1L97.5 2.9L93.5 2.7L89.5 2.6L85.5 2.5L81.5 2.4L77.4 2.3L73.4 2.5L69.5 2.5L65.5 2.5L61.4 2.6L57.5 2.8L53.5 2.9L49.5 3.2L45.5 3.2L41.5 3.3L37.5 3.2L33.5 3.3L29.5 3.3L25.5 3.2L21.5 3.2L17.5 3.4L13.5 3.4L9.5 3.8L5.5 4.4L1.5 4.9Z'/%3E%3C/svg%3E");--u2:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M1.5 5.9L5.5 6.2L9.5 6.4L13.5 6.6L17.5 6.6L21.5 6.6L25.5 6.6L29.5 6.5L33.5 6.6L37.5 6.5L41.5 6.5L45.5 6.5L49.5 6.3L53.5 6.4L57.5 6.4L61.5 6.5L65.5 6.6L69.5 6.6L73.5 6.7L77.5 6.6L81.5 6.7L85.5 6.6L89.5 6.7L93.5 6.6L97.5 6.5L101.5 6.5L105.5 6.3L109.5 6.3L113.5 6.2L117.5 6.3L121.5 6.2L125.5 6.1L129.5 6.1L133.5 6L137.5 6L141.5 6L145.5 5.9L149.5 6L153.5 6L157.5 5.9L161.5 5.9L165.5 5.9L169.5 5.9L173.5 5.9L177.5 5.8L181.5 5.8L185.5 5.7L189.5 5.3L193.5 5.1L197.5 4.8L197.5 4.3L193.5 4.2L189.5 4L185.5 4L181.5 4L177.5 4L173.5 4.1L169.5 4.1L165.5 4.1L161.5 4L157.5 4L153.5 4L149.5 4L145.5 4L141.5 4.1L137.5 4.1L133.5 4.1L129.5 4L125.5 3.9L121.5 3.9L117.5 3.8L113.5 3.8L109.5 3.7L105.5 3.7L101.5 3.8L97.5 3.7L93.5 3.9L89.5 4.1L85.5 4.2L81.5 4.4L77.5 4.5L73.5 4.6L69.5 4.6L65.5 4.8L61.5 4.8L57.5 4.8L53.5 4.9L49.5 4.7L45.5 4.8L41.5 4.7L37.5 4.7L33.5 4.8L29.5 4.7L25.5 4.7L21.5 4.6L17.5 4.6L13.5 4.5L9.5 4.8L5.5 5L1.5 5.3Z'/%3E%3C/svg%3E");--v2:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M1.5 6.4L5.5 6.9L9.5 7.4L13.5 7.5L17.5 7.4L21.5 7.3L25.5 7.2L29.5 7.2L33.5 7L37.5 6.9L41.5 6.7L45.5 6.7L49.5 6.8L53.5 6.9L57.5 6.9L61.5 6.9L65.5 6.8L69.5 6.7L73.5 6.6L77.5 6.6L81.5 6.6L85.5 6.5L89.5 6.4L93.5 6.4L97.5 6.3L101.5 6.3L105.5 6.4L109.5 6.6L113.4 6.8L117.4 7L121.5 7.1L125.5 7.1L129.5 7.3L133.5 7.3L137.5 7.5L141.5 7.5L145.5 7.6L149.5 7.4L153.5 7.4L157.5 7.2L161.5 7.2L165.5 7.2L169.5 7L173.5 7L177.5 6.8L181.5 6.7L185.5 6.6L189.5 6.1L193.5 5.5L197.5 5L197.5 3.8L193.5 3.3L189.5 2.9L185.5 2.6L181.5 2.5L177.5 2.4L173.5 2.3L169.5 2.2L165.5 2.3L161.5 2.2L157.5 2.1L153.5 2.1L149.5 1.9L145.5 1.9L141.5 1.9L137.5 2L133.5 2.1L129.5 2.3L125.5 2.3L121.5 2.4L117.6 2.4L113.5 2.4L109.5 2.5L105.5 2.6L101.5 2.6L97.5 2.6L93.5 2.7L89.5 2.5L85.5 2.6L81.5 2.7L77.5 2.8L73.5 2.9L69.5 3L65.5 3L61.5 3.1L57.5 3.2L53.5 3.3L49.5 3.5L45.5 3.6L41.5 3.7L37.5 3.9L33.5 3.8L29.5 3.9L25.5 3.9L21.5 3.9L17.5 4L13.5 3.8L9.5 4.1L5.5 4.4L1.5 4.9Z'/%3E%3C/svg%3E");--u3:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M1.5 5.6L5.5 5.6L9.5 5.8L13.5 5.9L17.5 5.8L21.5 5.8L25.5 5.7L29.5 5.7L33.5 5.7L37.5 5.7L41.5 5.9L45.5 6L49.5 6.1L53.5 6.3L57.5 6.4L61.5 6.3L65.5 6.3L69.5 6.4L73.5 6.4L77.5 6.4L81.5 6.4L85.5 6.3L89.5 6.1L93.5 6L97.5 6L101.5 5.9L105.5 5.9L109.5 6L113.5 5.9L117.5 5.8L121.5 5.6L125.5 5.5L129.5 5.4L133.5 5.2L137.5 5.2L141.5 5L145.5 5L149.5 5.1L153.5 5.1L157.5 5.1L161.5 5.2L165.5 5.2L169.5 5.4L173.5 5.5L177.5 5.5L181.5 5.6L185.5 5.5L189.5 5.2L193.5 4.9L197.5 4.5L197.5 3.7L193.5 3.5L189.5 3.2L185.5 3.1L181.5 3.2L177.5 3.4L173.5 3.5L169.5 3.6L165.5 3.6L161.5 3.7L157.5 3.6L153.5 3.6L149.5 3.5L145.5 3.4L141.5 3.4L137.5 3.5L133.5 3.4L129.5 3.5L125.5 3.4L121.5 3.4L117.5 3.5L113.5 3.6L109.5 3.7L105.5 3.6L101.5 3.7L97.5 3.8L93.5 3.7L89.5 3.7L85.5 3.9L81.5 3.9L77.5 4L73.5 4L69.5 3.9L65.5 3.9L61.5 3.8L57.5 3.9L53.5 3.8L49.5 3.8L45.5 3.9L41.5 4L37.5 4L33.5 4.1L29.5 4.2L25.5 4.1L21.5 4.3L17.5 4.3L13.5 4.4L9.5 4.6L5.5 4.7L1.5 5Z'/%3E%3C/svg%3E");--v3:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'%3E%3Cpath d='M1.5 6L5.5 6.5L9.5 6.9L13.5 7.3L17.5 7.2L21.5 7.1L25.5 7L29.5 7.1L33.5 7.1L37.5 7.2L41.5 7.3L45.5 7.3L49.5 7.2L53.5 7.1L57.5 7L61.5 6.9L65.5 6.8L69.5 6.8L73.5 6.8L77.5 6.6L81.5 6.6L85.5 6.6L89.5 6.7L93.5 6.9L97.6 6.9L101.5 7L105.5 7L109.6 6.9L113.5 6.8L117.5 6.8L121.5 6.7L125.5 6.8L129.5 6.7L133.5 6.8L137.5 6.6L141.4 6.7L145.5 6.9L149.4 7L153.4 7.3L157.4 7.6L161.5 7.7L165.4 7.7L169.4 7.8L173.5 7.8L177.4 7.8L181.5 7.9L185.5 7.9L189.5 7.3L193.5 6.7L197.5 6.2L197.5 4.9L193.5 4.2L189.5 3.5L185.5 2.8L181.5 2.7L177.6 2.6L173.5 2.5L169.5 2.4L165.6 2.3L161.5 2.2L157.5 2.3L153.6 2.3L149.5 2.3L145.5 2.4L141.6 2.3L137.5 2.2L133.5 2.3L129.5 2.1L125.5 2.2L121.5 2.2L117.5 2.3L113.4 2.4L109.4 2.5L105.5 2.6L101.5 2.7L97.4 2.9L93.5 3.3L89.5 3.4L85.5 3.6L81.5 3.7L77.5 3.6L73.5 3.7L69.5 3.6L65.5 3.6L61.5 3.6L57.5 3.6L53.5 3.5L49.5 3.3L45.5 3.3L41.5 3.3L37.5 3.3L33.5 3.4L29.5 3.5L25.5 3.4L21.5 3.4L17.5 3.3L13.5 3.3L9.5 3.6L5.5 4.1L1.5 4.6Z'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{background:var(--grain),var(--weave),var(--stone);color:var(--choc);-webkit-text-size-adjust:100%;scroll-padding-top:24px}
+body{margin:0;font:400 16px/1.5 "Instrument Sans",system-ui,sans-serif;font-stretch:96%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+::selection{background:var(--ochre);color:var(--choc)}
+p,ul,ol,dl,dd,blockquote,figure,h1,h2{margin:0}
+ul,ol{list-style:none;padding:0}
+a{color:inherit;text-decoration:none}
+.wm{font-family:"Anybody",sans-serif;font-style:italic;font-weight:900;font-stretch:112%}
+
+/* links: a pen line under the word in one ink; on hover a heavier second ink is drawn in under it, a hair off */
+.u{position:relative;z-index:0;--k1:var(--green);--k2:var(--ochre)}
+.u::before,.u::after{content:"";position:absolute;left:-.08em;right:-.12em;bottom:-.3em;height:.46em;pointer-events:none;
+  -webkit-mask:var(--um) 0 0/100% 100% no-repeat;mask:var(--um) 0 0/100% 100% no-repeat}
+.u::before{background:var(--k1)}
+.u::after{z-index:-1;background:var(--k2);--um:var(--vm);transform:translate(.07em,.05em);clip-path:inset(0 100% 0 0);transition:clip-path .16s var(--snap)}
+@media (hover:hover){.u:hover::after{clip-path:inset(0 -2px 0 0);transition-duration:.22s;transition-timing-function:var(--fast)}}
+.u:active::after,.u:focus-visible::after{clip-path:inset(0 -2px 0 0);transition-duration:.12s}
+.u:focus-visible{outline:2px solid var(--k1);outline-offset:4px;border-radius:1px}
+.u0{--um:var(--u0);--vm:var(--v0)}.u1{--um:var(--u1);--vm:var(--v1)}.u2{--um:var(--u2);--vm:var(--v2)}.u3{--um:var(--u3);--vm:var(--v3)}
+:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+
+/* the head of the sheet: the patch, and the name of the drawer */
+.top{padding:clamp(28px,4.4vw,56px) var(--gut) 0;display:flex;align-items:flex-end;gap:clamp(24px,3.4vw,56px)}
+.mark{display:block;flex:none;width:172px;margin-left:-8px;border-radius:40%}
+.mark svg{display:block;width:100%;height:auto;overflow:visible}
+.mark:focus-visible{outline-offset:2px}
+h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-serif;font-stretch:108%;letter-spacing:-.012em}
+
+/* the sheet: one run of pieces on a twelve-column grid; each row is composed, nothing is filed under a heading */
+.sheet{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(20px,2.4vw,34px);row-gap:clamp(52px,5.8vw,92px);
+  padding:clamp(56px,6.4vw,96px) var(--gut) clamp(72px,8vw,128px)}
+.p{grid-column:var(--c);min-width:0;margin-top:var(--dy,0)}
+.a-s{align-self:start}.a-c{align-self:center}.a-e{align-self:end}
+
+/* a piece: the picture mounted on card stock, the words underneath on the bare paper */
+.card{position:relative;padding:clamp(10px,1vw,14px);background:var(--grain),var(--weave),var(--stock,var(--stock-sand));box-shadow:var(--paper)}
+.s0{--stock:var(--stock-lilac);--ink:var(--green)}.s1{--stock:var(--stock-sage);--ink:var(--orange)}.s2{--stock:var(--stock-sand);--ink:var(--lilac)}.s3{--stock:var(--stock-lilac);--ink:var(--ochre)}
+.s4{--stock:var(--stock-sage);--ink:var(--lilac)}.s5{--stock:var(--stock-sand);--ink:var(--green)}
+.its{display:flex;gap:clamp(8px,.9vw,12px);align-items:flex-start}
+.its>.it{flex:var(--ar) 1 0;min-width:0}
+.it{position:relative}
+/* the picture is one screen; under it a second ink is laid a few points out of register */
+.fr{position:relative;z-index:0;aspect-ratio:var(--ar)}
+.fr::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--ink);transform:translate(3px,3px)}
+.fr img,.fr video{display:block;width:100%;height:100%;object-fit:cover;background:var(--choc);outline:1px solid rgba(43,26,18,.5);outline-offset:-1px}
+.fr video{cursor:pointer}
+.tag{position:absolute;left:8px;top:8px;z-index:2;padding:5px 7px 4px;background:var(--stone);box-shadow:2px 2px 0 var(--choc);
+  font:650 9.5px/1 "Anybody",sans-serif;font-stretch:128%;letter-spacing:.24em;text-transform:uppercase}
+.icap{margin-top:10px;font-size:15px;line-height:1.4;text-wrap:pretty}
+
+/* words that are the piece: set big in the heavy italic, printed straight onto the stock */
+.qt{padding:clamp(18px,2vw,30px) clamp(16px,1.8vw,26px) clamp(18px,1.8vw,26px)}
+.q{position:relative;font:italic 640 22px/1.24 "Anybody",sans-serif;font-stretch:96%;letter-spacing:-.004em;text-wrap:pretty}
+.q::before{content:"\201C";display:block;height:.5em;margin:-.06em 0 .12em;font:italic 900 2.6em/1 "Anybody",sans-serif;color:var(--ink)}
+.q-s{font-size:20px}.q-xl{font-size:clamp(20px,1.6vw,24px);line-height:1.28}
+.q p+p{margin-top:.6em}
+.q em{font-style:normal;font-weight:800}
+.q .ed{font-style:normal;font-weight:560;padding:0 .04em}
+/* who said it: signed under the words, in the label face */
+.who,.cap .by{display:block;margin-top:14px;font:650 10.5px/1.3 "Anybody",sans-serif;font-style:normal;font-stretch:128%;letter-spacing:.2em;text-transform:uppercase}
+.who::before,.cap .by::before{content:"";display:inline-block;vertical-align:middle;width:22px;height:5px;margin:-2px .7em 0 0;background:var(--choc);opacity:.8;
+  -webkit-mask:var(--v2) 0 0/100% 100% no-repeat;mask:var(--v2) 0 0/100% 100% no-repeat}
+
+/* book pages and transcripts: a sheet of stone paper on the stock */
+.pg{padding:clamp(14px,1.4vw,22px);background:var(--stone);box-shadow:0 1px 0 rgba(43,26,18,.18);font-size:15px;line-height:1.5;text-wrap:pretty;transform:rotate(-.4deg)}
+.pg .sc,.spread .sc{font-variant:small-caps;letter-spacing:.04em}
+.pg dl>div+div{margin-top:10px}
+.pg dt{font:650 9.5px/1 "Anybody",sans-serif;font-stretch:128%;letter-spacing:.24em;text-transform:uppercase;margin-bottom:5px;color:var(--gink)}
+
+.cap{margin-top:14px;padding-right:8px;font-size:15px;line-height:1.45;max-width:62ch;text-wrap:pretty}
+.cap .say+.say{margin-top:8px}
+.cap .gt{margin-top:8px}
+.cap .gt li{position:relative;padding-left:1.2em}
+.cap .gt li::before{content:">";position:absolute;left:0;color:var(--gink);font-weight:700}
+.cap .sub{margin-top:10px;padding-left:12px;border-left:2px solid var(--ochre);font-size:15px}
+
+/* her own post: the pictures on their stock, her words beside them as a quotation, signed and linked */
+.pq-said{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:clamp(28px,3.4vw,56px);align-items:center}
+.said{padding-right:clamp(0px,2vw,32px)}
+.q-said{font-size:clamp(19px,1.5vw,22px);line-height:1.34;--ink:var(--orange)}
+.said .who{margin-top:20px;font-size:12px;letter-spacing:.18em}
+.arr{display:inline-block;margin-left:.5em;font:600 13px/1 "Instrument Sans",sans-serif;letter-spacing:0;transform:translateY(-1px)}
+
+/* the FedEx spread: one sheet folded down the middle, two facing leaves. Each leaf is its own passage, quoted exactly,
+   so nothing reflows over the fold and nothing is hyphenated; the leaves share a height so the fold runs the full sheet */
+.spread{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:var(--stone);
+  box-shadow:0 1px 0 rgba(43,26,18,.18),0 0 0 1px rgba(43,26,18,.06);font-size:clamp(16px,1.25vw,18px);line-height:1.58;text-wrap:pretty;hyphens:manual}
+.leaf{--fold:90deg;padding:clamp(26px,3vw,46px) clamp(28px,3.4vw,52px) clamp(30px,3.2vw,50px)}
+/* the gutter: shade into the fold from each side, with a hairline of light on the right-hand leaf's edge */
+.leaf:first-child{background:linear-gradient(calc(var(--fold) + 180deg),rgba(43,26,18,.15),rgba(43,26,18,.05) 6px,transparent 40px)}
+.leaf+.leaf{background:linear-gradient(var(--fold),rgba(43,26,18,.12),rgba(255,255,255,.18) 1.5px,rgba(43,26,18,.04) 8px,transparent 40px)}
+.spread .sc{font-size:1.06em;line-height:1}
+
+/* groups: one card, the pieces inside it sharing its edges; the trio and the strip keep their own captions under each */
+.grp .icap{font-size:14.5px;padding-right:4px}
+.g-trump .pg{transform:rotate(.3deg)}
+
+@media (max-width:1040px){
+  :root{--pad:32px}
+  .p{grid-column:var(--t)}
+  .sheet{column-gap:20px}
+}
+@media (max-width:640px){
+  :root{--pad:20px}
+  .top{flex-direction:column;align-items:flex-start;gap:14px}
+  .mark{width:124px}
+  h1{font-size:46px}
+  .sheet{grid-template-columns:minmax(0,1fr);row-gap:52px;padding-top:40px}
+  .p{grid-column:1;margin-top:0;align-self:start}
+  /* an upright piece is set narrower rather than cropped, and alternates sides down the sheet */
+  .p.up{width:min(78%,calc(70svh * .8 + 24px))}
+  .p.up:nth-child(even){justify-self:end}
+  .pq-said{grid-template-columns:minmax(0,1fr);row-gap:18px}
+  .said{padding-right:0}
+  .its{flex-direction:column;gap:16px}
+  .its>.it{flex:none;width:100%}
+  /* pictures that belong together sit side by side; clips stack so each keeps a bar wide enough to scrub */
+  .its:not(:has(video,.pg)){flex-direction:row}
+  .its:not(:has(video,.pg))>.it{flex:var(--ar) 1 0;width:auto}
+  /* the book turns: one leaf above the other, the fold across the sheet between them */
+  .spread{grid-template-columns:minmax(0,1fr)}
+  .leaf{--fold:180deg;padding:24px 22px 26px}
+  .icap,.pg{font-size:15.5px}
+  .cap{font-size:16px}
+  .q{font-size:20px}.q-s{font-size:19px}
+}
+/* the end of the run: a ruled foot and the way home, in the label face */
+.foot{margin:0 var(--gut);padding:18px 0 clamp(40px,5vw,64px);border-top:1.5px solid var(--choc);display:flex;justify-content:space-between;align-items:baseline;
+  font:650 10.5px/1.3 "Anybody",sans-serif;font-stretch:128%;letter-spacing:.2em;text-transform:uppercase}
+.foot a{color:inherit}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0s!important}}
+
+/* player.css: the printed control bar player.js adds to each .vp (a positioned box around one <video>).
+   Inks are read from --stone, --choc, --green and --ochre, with fallbacks, and --fast/--snap curves if set. */
+.vp{position:relative;container-type:inline-size}
+.vp-bar{-webkit-user-select:none;user-select:none;position:absolute;left:8px;right:8px;bottom:8px;z-index:3;display:flex;align-items:center;height:32px;
+  color:var(--choc,#2b1a12);background:var(--stone,#ebe5d6);box-shadow:0 0 0 1.5px var(--choc,#2b1a12),3px 3px 0 1.5px var(--choc,#2b1a12);
+  font:600 11.5px/1 "Instrument Sans",system-ui,sans-serif;font-variant-numeric:tabular-nums;font-feature-settings:"tnum";
+  opacity:0;transform:translateY(4px);pointer-events:none;
+  transition:opacity .14s var(--fast,ease-out),transform .18s var(--fast,ease-out)}
+/* it shows for a pointer over the clip, for a key anywhere in it, while scrubbing and while a hand has it paused */
+.vp:hover .vp-bar,.vp:focus-within .vp-bar,.vp-drag .vp-bar,.vp-held .vp-bar{opacity:1;transform:none;pointer-events:auto}
+.vp-bar button{flex:none;width:32px;height:32px;padding:0;display:grid;place-items:center;border:0;border-radius:0;background:none;color:inherit;cursor:pointer;
+  transition:background-color .12s var(--snap,ease)}
+.vp-bar button+*,.vp-bar *+button{border-left:1px solid rgba(43,26,18,.28)}
+.vp-bar svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.vp-pp svg path{fill:currentColor;stroke:none}
+.vp-pp .pa,.vp-play .vp-pp .pl{display:none}.vp-play .vp-pp .pa{display:inline}
+.vp-snd .bx{fill:currentColor}
+.vp-snd .w,.vp-snd[aria-pressed=true] .x{display:none}.vp-snd[aria-pressed=true] .w{display:inline}
+.vp-snd[aria-pressed=true]{background:var(--ochre,#eeaa3a)}
+@media (hover:hover){.vp-bar button:hover{background:rgba(43,26,18,.08)}.vp-snd[aria-pressed=true]:hover{background:var(--ochre,#eeaa3a)}}
+.vp-bar button:active{background:rgba(43,26,18,.16)}
+.vp-bar :focus-visible{outline:2px solid var(--green,#0a8036);outline-offset:-4px}
+
+/* the track: a ruled groove; what has loaded in a lighter ink, what has played in full ink, the playhead a hairline */
+.vp-tr{position:relative;flex:1 1 auto;min-width:40px;height:32px;margin:0 12px;cursor:pointer;touch-action:pan-y}
+.vp-tr i{position:absolute;left:0;top:50%;pointer-events:none}
+.vp-buf,.vp-run{height:3px;margin-top:-1.5px;width:100%;transform-origin:0 50%}
+.vp-tr::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(43,26,18,.38)}
+.vp-buf{background:rgba(43,26,18,.24);transform:scaleX(var(--b,0))}
+.vp-run{background:var(--choc,#2b1a12);transform:scaleX(var(--p,0))}
+.vp-tr .vp-head{width:1.5px;height:16px;margin:-8px 0 0 -.75px;background:var(--choc,#2b1a12);left:calc(var(--p,0) * 100%)}
+.vp-head::after{content:"";position:absolute;left:-3px;top:-2px;width:7.5px;height:2px;background:inherit}
+.vp-drag .vp-head{height:20px;margin-top:-10px;background:var(--green,#0a8036)}
+.vp-tr:focus-visible{outline-offset:2px}
+.vp-t{flex:none;padding:0 10px 0 0;white-space:nowrap;letter-spacing:.01em}
+.vp-c{display:inline-block;min-width:3ch;text-align:right}
+
+/* a narrow clip keeps the current time and drops the total, which the slider still announces */
+@container (max-width:250px){.vp-s,.vp-d{display:none}.vp-tr{margin:0 10px}}
+@container (max-width:170px){.vp-t{display:none}}
+
+/* touch: always there, but quiet: a thin see-through strip with no ring or rules; the ink stays full so the time keeps
+   AA contrast over any frame. It firms up to near-solid paper when touched, paused by a hand, or scrubbed */
+@media (hover:none){
+  .vp-bar{opacity:1;transform:none;pointer-events:auto;left:6px;right:6px;bottom:6px;height:28px;font-weight:500;font-size:11px;
+    background:rgba(235,229,214,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:none}
+  .vp-bar button{width:34px;height:28px}
+  .vp-bar button+*,.vp-bar *+button{border-left:0}
+  .vp-tr{height:28px;margin:0 6px}
+  .vp-tr .vp-head{height:12px;margin-top:-6px}.vp-drag .vp-tr .vp-head{height:18px;margin-top:-9px}
+  .vp-held .vp-bar,.vp-drag .vp-bar,.vp:focus-within .vp-bar{background:rgba(235,229,214,.94)}
+}
+@media (prefers-reduced-motion:reduce){.vp-bar{transition:none}}
+
+</style>
+</head>
+<body>
+<header class="top" id="top">
+<a class="mark" href="/"><svg viewBox="-174.4 -72.3 348.9 144.5" role="img" aria-label="sudolabel"><defs><filter id="m-i" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="5" result="w"/>
+<feDisplacementMap in="SourceGraphic" in2="w" scale="1.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency=".7 .5" numOctaves="2" seed="12" result="g"/>
+<feColorMatrix in="g" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -20 16.10" result="gm"/>
+<feTurbulence type="fractalNoise" baseFrequency=".006 .09" numOctaves="2" seed="8" result="s"/>
+<feColorMatrix in="s" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.60 1.38" result="sm"/>
+<feComposite in="gm" in2="sm" operator="arithmetic" k1="1" result="m"/>
+<feComposite in="d" in2="m" operator="in"/>
+</filter></defs>
+<g filter="url(#m-i)"><path class="m-rim" fill="#ebe5d6" d="M170.2-34.9l.2 2.5 0 2.5-.1 2.5-.4 2.5-.7 2.4-.9 2.4-.9 2.3-1.1 2.3-1.4 2.2-1.5 2-1.3 2.2-1.7 1.9-1.6 1.9-1.9 1.8-1.7 1.8-2 1.6-1.9 1.6-2 1.5-1.9 1.6-2.1 1.4-2.1 1.5-2 1.4-2.1 1.4-2.1 1.5-2.1 1.3-2.2 1.2-2.1 1.3-2.2 1.2-2.3 1.1-2.1 1.2-2.3 1.2-2.2 1-2.2 1.3-2.2 1.1-2.3 1.1-2.2 1.1-2.2 1.2-2.3 1.1-2.3 .9-2.2 1.2-2.3 1-2.3 .9-2.3 1-2.4 .8-2.3 1-2.3 .9-2.3 1-2.4 .7-2.3 1-2.4 .8-2.3 .9-2.4 .7-2.3 .9-2.4 .7-2.4 .8-2.4 .6-2.4 .8-2.4 .7-2.4 .7-2.4 .6-2.5 .5-2.3 .9-2.4 .6-2.4 .8-2.4 .7-2.4 .6-2.4 .7-2.4 .8-2.4 .5-2.4 .8-2.5 .4-2.4 .8-2.4 .7-2.4 .4-2.5 .6-2.4 .7-2.4 .5-2.4 .7-2.5 .5-2.4 .6-2.4 .7-2.5 .5-2.5 .3-2.4 .5-2.5 .4-2.5 .4-2.4 .4-2.5 .3-2.5 .3-2.4 .5-2.5 .1-2.5 .5-2.5 .3-2.5 .4-2.4 .3-2.5 .3-2.5 .2-2.5 .2-2.5 .2-2.5 .4-2.5 0-2.5 .3-2.5 .2-2.5 .3-2.5 .1-2.5 .1-2.5 .2-2.5 .4-2.5 0-2.5 .1-2.5 .1-2.5-.1-2.5 .2-2.5-.1-2.5-.1-2.5-.1-2.5-.1-2.5-.3-2.5 0-2.5-.1-2.5-.2-2.5-.2-2.5-.2-2.4-.5-2.5-.1-2.5-.5-2.5-.4-2.5-.3-2.4-.5-2.4-.6-2.5-.4-2.5-.4-2.4-.6-2.4-.4-2.5-.6-2.4-.5-2.4-.8-2.4-.6-2.3-.8-2.4-.8-2.3-.9-2.3-.9-2.3-1.1-2.2-1.1-2.2-1.1-2.1-1.3-2.2-1.3-2-1.4-1.9-1.6-1.8-1.6-1.5-2-1.7-1.9-1-2.2-.9-2.3-.7-2.4-.4-2.4-.2-2.4 .4-2.4 .5-2.4 .5-2.4 .9-2.3 .8-2.3 1.2-2.2 1.3-2.1 1.3-2.1 1.5-2 1.6-1.8 1.6-2 1.7-1.7 1.8-1.8 1.7-1.8 1.8-1.7 1.9-1.7 1.8-1.7 2-1.5 1.9-1.7 2-1.5 2-1.5 2-1.6 2.1-1.3 2.1-1.4 2-1.4 2.2-1.3 2.2-1.3 2.3-1 2.1-1.3 2.3-1.1 2.2-1.2 2.2-1.1 2.3-1.1 2.2-1.1 2.3-1.1 2.2-1.1 2.3-1.1 2.3-.9 2.3-1 2.3-1 2.3-.9 2.4-.8 2.3-.9 2.4-.9 2.3-1 2.2-1 2.4-.9 2.3-.9 2.3-1 2.4-.9 2.3-.8 2.4-.7 2.4-.8 2.4-.8 2.4-.7 2.4-.8 2.4-.6 2.4-.7 2.4-.6 2.4-.7 2.4-.8 2.4-.7 2.4-.6 2.5-.5 2.4-.5 2.4-.7 2.5-.5 2.5-.4 2.4-.6 2.5-.3 2.4-.6 2.4-.6 2.5-.4 2.5-.4 2.4-.6 2.4-.5 2.4-.7 2.5-.4 2.5-.5 2.4-.5 2.4-.6 2.5-.4 2.5-.3 2.4-.5 2.5-.4 2.4-.4 2.5-.5 2.5-.3 2.4-.4 2.5-.6 2.5-.3 2.4-.4 2.5-.3 2.5-.3 2.5-.2 2.5-.2 2.5-.2 2.5-.2 2.5-.2 2.5-.1 2.4-.2 2.5-.3 2.5-.1 2.5-.1 2.5-.2 2.5-.1 2.5-.3 2.5 0 2.5-.2 2.5 .1 2.5-.1 2.5-.1 2.5 .1 2.5-.1 2.5 0 2.5-.1 2.5 .1 2.5-.1 2.5 0 2.5 .1 2.5 .2 2.6 0 2.5 .3 2.4 .4 2.5 .1 2.5 .6 2.5 .3 2.5 .4 2.5 .3 2.4 .6 2.5 .4 2.4 .7 2.5 .5 2.4 .7 2.4 .6 2.4 .8 2.4 .8 2.3 .9 2.3 1 2.3 1 2.3 1 2.2 1.2 2.2 1.1 2.2 1.3 2.1 1.3 2 1.5 2 1.4 1.9 1.8 1.7 1.8 1.5 2 1.3 2.2 1.1 2.2 .8 2.4z"/><path class="m-ov" fill="#0a8036" d="M164.6-33.8l.3 2.5 0 2.5-.3 2.5-.7 2.4-.8 2.4-1.1 2.2-1.3 2.2-1.4 2-1.5 2.1-1.7 1.8-1.6 1.9-1.8 1.7-1.8 1.8-1.9 1.5-1.9 1.7-2 1.5-2 1.4-2 1.5-2 1.5-2 1.4-2.1 1.4-2.1 1.3-2.1 1.3-2.1 1.4-2.1 1.3-2.2 1.2-2.1 1.3-2.2 1.2-2.2 1.2-2.2 1.2-2.2 1.1-2.2 1.3-2.3 1.1-2.2 1-2.3 1.1-2.2 1.1-2.3 1-2.3 1.1-2.3 1-2.2 1-2.4 .9-2.3 1-2.3 .9-2.3 1-2.3 .9-2.4 .9-2.3 .8-2.4 .9-2.3 .8-2.4 .9-2.4 .7-2.3 .9-2.4 .7-2.4 .7-2.4 .7-2.4 .7-2.4 .8-2.4 .7-2.4 .7-2.4 .6-2.4 .7-2.4 .7-2.4 .7-2.5 .6-2.3 .7-2.5 .7-2.4 .6-2.4 .6-2.4 .6-2.5 .7-2.4 .5-2.4 .6-2.5 .5-2.4 .6-2.5 .5-2.4 .5-2.5 .4-2.5 .4-2.5 .3-2.4 .6-2.5 .4-2.5 .2-2.4 .3-2.5 .4-2.5 .4-2.5 .3-2.4 .3-2.5 .4-2.5 .1-2.5 .3-2.5 .4-2.5 .1-2.5 .3-2.4 .4-2.5 .2-2.5 .2-2.5 .1-2.5 .2-2.5 .2-2.5 .2-2.5 .1-2.5 .1-2.5 .2-2.5 .1-2.5 .2-2.5 .1-2.5 .1-2.4 .1-2.5 0-2.5 .1-2.5-.1-2.5 .1-2.5 0-2.5-.1-2.5-.1-2.5-.1-2.5-.1-2.5-.1-2.5-.3-2.5-.1-2.5-.3-2.4-.4-2.5-.1-2.5-.4-2.5-.4-2.4-.3-2.5-.5-2.5-.3-2.4-.6-2.5-.3-2.4-.6-2.4-.5-2.4-.7-2.4-.7-2.5-.6-2.3-.8-2.4-.8-2.3-1-2.2-1.1-2.3-1-2.2-1.3-2.1-1.3-2-1.7-1.9-1.6-1.7-1.9-1.5-2-1.4-2.1-.9-2.4-.7-2.5-.3-2.6 .2-2.5 .3-2.5 .7-2.5 .9-2.4 1.1-2.3 1.4-2.1 1.3-2.1 1.5-2.1 1.8-1.8 1.6-1.9 1.8-1.7 1.8-1.8 1.9-1.6 2-1.6 2-1.5 1.9-1.6 2.1-1.4 2-1.5 2-1.4 2.2-1.4 2-1.4 2.1-1.3 2.1-1.3 2.1-1.4 2.2-1.2 2.2-1.2 2.2-1.3 2.2-1.2 2.2-1.2 2.3-1 2.2-1.1 2.3-1.1 2.2-1.1 2.3-.9 2.3-1.1 2.4-.9 2.3-.9 2.3-.8 2.3-1 2.4-.9 2.3-.8 2.4-.9 2.3-.9 2.3-.9 2.4-.8 2.4-.7 2.3-.9 2.4-.7 2.4-.8 2.3-.9 2.4-.7 2.4-.8 2.4-.8 2.4-.7 2.3-.8 2.4-.7 2.4-.7 2.4-.7 2.4-.6 2.4-.8 2.4-.6 2.4-.8 2.4-.6 2.4-.7 2.4-.7 2.4-.7 2.5-.5 2.4-.6 2.4-.6 2.5-.6 2.4-.7 2.4-.5 2.5-.5 2.4-.5 2.5-.6 2.4-.3 2.5-.4 2.4-.6 2.5-.3 2.5-.5 2.5-.3 2.4-.5 2.5-.2 2.5-.5 2.4-.3 2.5-.4 2.5-.4 2.5-.5 2.4-.2 2.5-.5 2.5-.3 2.5-.4 2.4-.2 2.5-.3 2.5-.3 2.5-.2 2.5-.4 2.5-.2 2.5-.2 2.5 0 2.5-.2 2.5-.2 2.5-.2 2.5 0 2.5 0 2.5-.1 2.5 0 2.5-.1 2.5 .1 2.5 0 2.5 0 2.5 .1 2.5 .2 2.5 0 2.5 .2 2.5 .2 2.5 .2 2.5 .2 2.5 .2 2.5 .3 2.4 .4 2.5 .2 2.5 .5 2.5 .3 2.4 .4 2.5 .5 2.4 .3 2.5 .6 2.4 .5 2.4 .5 2.5 .6 2.4 .7 2.3 .7 2.5 .7 2.3 .9 2.3 .8 2.3 1 2.3 1.1 2.2 1.1 2 1.5 2.1 1.3 1.9 1.6 1.8 1.7 1.6 1.9 1.3 2.1 1.3 2.1 .7 2.3z"/>
+<text class="wm" transform="rotate(-11.6)" x="-150" y="13.8" font-size="46" textLength="292" lengthAdjust="spacingAndGlyphs" fill="#ebe5d6">sudolabel</text></g></svg></a>
+<h1>inspiration</h1>
+</header>
+<main class="sheet">
+<figure class="p s0 grp g-bands" style="--c:1/13;--t:1/13"><div class="card"><div class="its n4"><figure class="it it-video" style="--ar:1.773"><div class="fr vp" style="--ar:1.773" data-d="140.1"><video src="media/bastille.mp4" poster="media/bastille.jpg" width="720" height="406" muted playsinline loop preload="none" controls aria-label="Bastille playing Pompeii in a living room"></video></div><figcaption class="icap">Bastille playing Pompeii in what looks like someone’s living room.</figcaption></figure><figure class="it it-video" style="--ar:1.104"><div class="fr vp" style="--ar:1.104" data-d="48.4"><video src="media/brightside.mp4" poster="media/brightside.jpg" width="720" height="652" muted playsinline loop preload="none" controls aria-label="Mr. Brightside, early, in a small club"></video></div><figcaption class="icap">Mr. Brightside, without anyone singing along… because it was the debut.</figcaption></figure><figure class="it it-video" style="--ar:1.364"><div class="fr vp" style="--ar:1.364" data-d="85.6"><video src="media/mgmt.mp4" poster="media/mgmt.jpg" width="720" height="528" muted playsinline loop preload="none" controls aria-label="MGMT playing Kids on a college quad"></video></div><figcaption class="icap">MGMT playing ‘Kids’ to a crowd of maybe 25 people on a college quad.</figcaption></figure><figure class="it it-video" style="--ar:1.333"><div class="fr vp" style="--ar:1.333" data-d="118.8"><video src="media/nirvana.mp4" poster="media/nirvana.jpg" width="720" height="540" muted playsinline loop preload="none" controls aria-label="Nirvana playing Smells Like Teen Spirit at a local gig"></video></div><figcaption class="icap">Nirvana playing ‘Smells Like Teen Spirit’ at a local gig.</figcaption></figure></div></div></figure>
+<figure class="p s1 pq-said" style="--c:1/13;--t:1/13"><div class="card"><div class="its n2"><div class="it it-image" style="--ar:1.333"><span class="tag">then</span><div class="fr" style="--ar:1.333"><img src="media/swift-then.webp" width="1600" height="1200" alt="A young Taylor Swift on a small riverside stage behind a hand-painted banner with her name. A few people watch from the grass." loading="lazy" decoding="async"></div></div><div class="it it-image" style="--ar:1.501"><span class="tag">now</span><div class="fr" style="--ar:1.501"><img src="media/swift-now.webp" width="1600" height="1066" alt="A stadium at night, every seat lit, the same singer suspended high above the crowd." loading="lazy" decoding="async"></div></div></div></div><figcaption class="said"><blockquote class="q q-said" cite="https://x.com/taylorswift13/status/1187453920068734978"><p class="say">I said in an interview 13 years ago “I’m just hoping that I have a second album that does as well as the first &amp; someday get to be a headliner, &amp; always be the same person that I started out as.” Scrolling through your posts has me feeling all the feelings &amp; I want to thank you.</p></blockquote>
+<p class="who"><a class="u u2" href="https://x.com/taylorswift13/status/1187453920068734978" rel="noopener" aria-label="Taylor Swift, the original post">Taylor Swift<span class="arr" aria-hidden="true">↗</span></a></p></figcaption></figure>
+<figure class="p s2 a-s" style="--c:1/8;--t:1/8"><div class="card"><div class="it it-video" style="--ar:1.773"><div class="fr vp" style="--ar:1.773" data-d="22.2"><video src="media/no-context.mp4" poster="media/no-context.jpg" width="720" height="406" muted playsinline loop preload="none" controls aria-label="A 22 year old opens Facebook to the public, and other beginnings"></video></div></div></div></figure>
+<figure class="p s3 a-s" style="--c:8/13;--t:8/13;--dy:72px"><div class="card"><div class="it it-image" style="--ar:1.541"><div class="fr" style="--ar:1.541"><img src="media/wright-flyer.webp" width="1600" height="1038" alt="The Wright Flyer lifting off the sand in 1903, one man watching from the side." loading="lazy" decoding="async"></div></div></div><figcaption class="cap"><p class="say">Kitty Hawk, December 17, 1903.</p><ul class="gt"><li>two brothers, from the middle of nowhere</li><li>testing their flying machine off the coast of nowhere</li><li>achieving a dream man has had for millennia</li><li>despite having no college degree</li><li>one of the five people there happened to have a camera</li></ul></figcaption></figure>
+<figure class="p s4 a-s" style="--c:2/7;--t:1/8"><div class="card"><div class="it it-video" style="--ar:1.333"><div class="fr vp" style="--ar:1.333" data-d="67.2"><video src="media/josh-allen.mp4" poster="media/josh-allen.jpg" width="720" height="540" muted playsinline loop preload="none" controls aria-label="Josh Allen, before anyone recruited him"></video></div></div></div><figcaption class="cap"><p class="say">I sometimes lie awake at night wondering if there are any other Josh Allens out there who never got their opportunity</p></figcaption></figure>
+<figure class="p s5 a-c pq" style="--c:8/12;--t:8/13"><div class="card qt"><div class="it it-quote" style="--ar:1.2"><blockquote class="q q-m"><p>everyone who succeeded at anything at one point in time had no experience doing the thing they succeeded at</p></blockquote></div></div></figure>
+<figure class="p s0 a-c pq" style="--c:1/8;--t:1/9"><div class="card qt"><div class="it it-quote" style="--ar:1.75"><blockquote class="q q-xl"><p>As you become an adult, you realize that things around you weren’t just always there; people made them happen. But only recently have I started to internalize how much tenacity <em>everything</em> requires. That hotel, that park, that railway. The world is a museum of passion projects.</p><footer class="who">John Collison</footer></blockquote></div></div></figure>
+<figure class="p s1 a-s up" style="--c:9/12;--t:9/13"><div class="card"><div class="it it-video" style="--ar:0.659"><div class="fr vp" style="--ar:0.659" data-d="30.3"><video src="media/jobs.mp4" poster="media/jobs.jpg" width="406" height="616" muted playsinline loop preload="none" controls aria-label="Objects people made, set to Steve Jobs"></video></div></div></div><figcaption class="cap"><p class="say">“Everything around you that you call life was made by people no smarter than you.”</p><p class="by">Steve Jobs</p></figcaption></figure>
+<figure class="p s2 grp g-fedex pspread" style="--c:3/11;--t:1/13"><div class="card"><div class="spread"><div class="leaf"><p><span class="sc">At age thirty</span> Frederick Wallace Smith was in deep trouble. His dream of creating Federal Express had become too expensive and was fast fizzling out. He had exhausted his father’s Greyhound Bus millions. He was in hock for 15 or 20 million more. He appeared in danger of losing his cargo jet planes and also his wife. His own board of directors had fired him as CEO. Now the FBI accused him of forging papers to get a $2 million bank loan and was trying to send him to prison. He thought of suicide.</p></div><div class="leaf"><p>In the early days of FedEx, Smith had to go to great lengths to keep the company afloat. In one instance, after a crucial business loan was denied, he took the company’s last $5,000 to Las Vegas and won $27,000 gambling on blackjack to cover the company’s $24,000 fuel bill. It kept FedEx alive for one more week.</p></div></div></div><figcaption class="cap"><p class="say">Fred Smith, who founded FedEx. 1944–2025.</p></figcaption></figure>
+<figure class="p s3 a-s up" style="--c:2/6;--t:1/7"><div class="card"><div class="it it-image" style="--ar:0.805"><div class="fr" style="--ar:0.805"><img src="media/debris.webp" width="660" height="820" alt="A man crouched in a hangar, looking over rocket debris laid out in piles across the floor." loading="lazy" decoding="async"></div></div></div></figure>
+<figure class="p s4 a-e" style="--c:7/11;--t:7/13"><div class="card"><div class="it it-video" style="--ar:1.006"><div class="fr vp" style="--ar:1.006" data-d="39.6"><video src="media/lee-kuan-yew.mp4" poster="media/lee-kuan-yew.jpg" width="720" height="716" muted playsinline loop preload="none" controls aria-label="A Lee Kuan Yew edit"></video></div></div></div></figure>
+<figure class="p s5 a-s" style="--c:1/8;--t:1/8"><div class="card"><div class="it it-video" style="--ar:1.773"><div class="fr vp" style="--ar:1.773" data-d="20.6"><video src="media/fury.mp4" poster="media/fury.jpg" width="720" height="406" muted playsinline loop preload="none" controls aria-label="Palmer Luckey on the Fury fighter jet"></video></div></div></div><figcaption class="cap"><p class="say">FIGHT UNFAIR</p></figcaption></figure>
+<figure class="p s0 a-s" style="--c:8/13;--t:8/13;--dy:96px"><div class="card"><div class="it it-video" style="--ar:1.773"><div class="fr vp" style="--ar:1.773" data-d="157.8"><video src="media/trailer.mp4" poster="media/trailer.jpg" width="720" height="406" muted playsinline loop preload="none" controls aria-label="A trailer for the future of humanity"></video></div></div></div><figcaption class="cap"><p class="say">A trailer for the future of humanity (e/acc).</p></figcaption></figure>
+<figure class="p s1 a-s" style="--c:2/7;--t:1/6"><div class="card"><div class="it it-image" style="--ar:1.168"><div class="fr" style="--ar:1.168"><img src="media/the-hat.webp" width="1170" height="1002" alt="A cap embroidered with: the money already printed, you just gotta go get it." loading="lazy" decoding="async"></div></div></div></figure>
+<figure class="p s2 a-c" style="--c:7/13;--t:6/13"><div class="card"><div class="it it-video" style="--ar:1.773"><div class="fr vp" style="--ar:1.773" data-d="40.3"><video src="media/druckenmiller.mp4" poster="media/druckenmiller.jpg" width="720" height="406" muted playsinline loop preload="none" controls aria-label="Stanley Druckenmiller on the opportunity set"></video></div></div></div><figcaption class="cap"><p class="say">druckenmiller on the opportunity set</p></figcaption></figure>
+<figure class="p s3 a-s" style="--c:1/7;--t:1/8"><div class="card"><div class="it it-image" style="--ar:1.511"><div class="fr" style="--ar:1.511"><img src="media/thiel.webp" width="1600" height="1059" alt="Peter Thiel at a podium, looking straight at the camera." loading="lazy" decoding="async"></div></div></div><figcaption class="cap"><p class="say">one good decision will compensate for all previous failures like they’re nothing</p></figcaption></figure>
+<figure class="p s4 a-c pq" style="--c:8/12;--t:8/13"><div class="card qt"><div class="it it-quote" style="--ar:1.05"><blockquote class="q q-s"><p>Courage is far shorter in supply than genius.</p><span class="who">Peter Thiel</span></blockquote></div></div></figure>
+<figure class="p s5 a-c pq" style="--c:1/6;--t:1/8"><div class="card qt"><div class="it it-quote" style="--ar:1.2"><blockquote class="q q-m"><p>There is $10,000,000 stuck inside of your laptop right now, you just need to figure out how to get it out.</p><footer class="who"><a class="u u1" href="https://x.com/chloe21e8/status/1755323533394350300" rel="noopener">@chloe21e8</a></footer></blockquote></div></div></figure>
+<figure class="p s0 a-s" style="--c:7/11;--t:8/13"><div class="card"><div class="it it-image" style="--ar:1"><div class="fr" style="--ar:1"><img src="media/hawk.webp" width="1080" height="1080" alt="A hawk perched on a power line with an arrow straight through its body." loading="lazy" decoding="async"></div></div></div><figcaption class="cap"><p class="say">All defeat is psychological until death</p></figcaption></figure>
+<figure class="p s1 grp g-trump" style="--c:1/13;--t:1/13"><div class="card"><div class="its n3 mx"><div class="it it-video" style="--ar:1.463"><div class="fr vp" style="--ar:1.463" data-d="22.0"><video src="media/trump-quit.mp4" poster="media/trump-quit.jpg" width="720" height="492" muted playsinline loop preload="none" controls aria-label="Trump: never ever quit"></video></div></div><figure class="it it-page" style="--ar:0.82"><div class="pg pg-a"><dl><div><dt>Caller</dt><dd>I’d like to know how you handle your stress.</dd></div><div><dt>Trump</dt><dd>I try and tell myself it doesn’t matter. Nothing matters. If you tell yourself it doesn’t matter—like you do shows, you do this, you do that, and then you have earthquakes in India where 400,000 people get killed. Honestly, it doesn’t matter.</dd></div></dl></div><figcaption class="icap">An answer to “What massively improved your mental health?”</figcaption></figure><figure class="it it-video" style="--ar:1.773"><div class="fr vp" style="--ar:1.773" data-d="17.8"><video src="media/it-always-does.mp4" poster="media/it-always-does.jpg" width="720" height="406" muted playsinline loop preload="none" controls aria-label="Trump: it will all work out"></video></div><figcaption class="icap">Bottom line it will all work out. You know why? It always does.</figcaption></figure></div></div></figure>
+<figure class="p s2 a-s" style="--c:1/7;--t:1/7"><div class="card"><div class="it it-image" style="--ar:1.443"><div class="fr" style="--ar:1.443"><img src="media/high-risk.webp" width="1600" height="1109" alt="A film still of three men in a meeting. Subtitle: Yeah, well, everything’s high risk if you’re a pussy." loading="lazy" decoding="async"></div></div></div></figure>
+<figure class="p s3 a-e grp g-golf" style="--c:7/13;--t:7/13"><div class="card"><div class="its n2"><div class="it it-image" style="--ar:1"><div class="fr" style="--ar:1"><img src="media/already-won.webp" width="1080" height="1080" alt="A golfer crouched on the green beside his crawling baby. Text: You’ve already won." loading="lazy" decoding="async"></div></div><div class="it it-image" style="--ar:1"><div class="fr" style="--ar:1"><img src="media/another-major.webp" width="1080" height="1080" alt="The same golfer mid-swing against a blue sky. Text: But another major never hurt." loading="lazy" decoding="async"></div></div></div></div></figure>
+<figure class="p s4 a-c pq" style="--c:1/8;--t:1/8"><div class="card qt"><div class="it it-quote" style="--ar:1.75"><blockquote class="q q-xl"><p>I’m now convinced that the only thing that matters long-term is to be directionally correct. It does not matter how you get there or how many stumbles you make along the way. If you want proof of this, look at the owner of <span class="ed">[</span>X<span class="ed">]</span>.</p><footer class="who">Nikita Bier</footer></blockquote></div></div></figure>
+<figure class="p s5 a-c" style="--c:8/13;--t:8/13"><div class="card"><div class="it it-image" style="--ar:1.529"><div class="fr" style="--ar:1.529"><img src="media/hundred-days.webp" width="1116" height="730" alt="A line chart of Replit’s 100 days of code challenge: about 210,000 people on day one, falling steeply toward almost nobody by day 100." loading="lazy" decoding="async"></div></div></div><figcaption class="cap"><p class="say">How many people were still going on each day of Replit’s 100 Days of Code.</p></figcaption></figure>
+<figure class="p s0 a-s" style="--c:1/8;--t:1/9"><div class="card"><div class="it it-image" style="--ar:1.797"><div class="fr" style="--ar:1.797"><img src="media/healthspan.webp" width="1100" height="612" alt="Overhead view of a race with one runner per age from 1 to 100, grouped in lanes by decade. The middle lanes are furthest ahead." loading="lazy" decoding="async"></div></div></div><figcaption class="cap"><p class="say">the distribution of healthspan</p><p class="sub">Mr Beast lined up one person from each age 1-100 and had them race to a finish line, and the overhead camera is an oddly beautiful data visualization of speed by age.</p></figcaption></figure>
+<figure class="p s1 a-s up" style="--c:9/13;--t:9/13;--dy:56px"><div class="card"><div class="it it-image" style="--ar:0.8"><div class="fr" style="--ar:0.8"><img src="media/championship-points.webp" width="960" height="1200" alt="A clay-court player walking away from his dropped racket. Scoreboard: Sinner 6 7 4 5 40, Alcaraz 4 6 6 3 0. Three championship points." loading="lazy" decoding="async"></div></div></div><figcaption class="cap"><p class="say">Roland-Garros final, 2025. Two sets down and serving at 3–5, 0–40, Alcaraz faced three championship points. He saved all three and won the fifth-set tiebreak, five and a half hours in.</p></figcaption></figure>
+<figure class="p s2 a-c pq" style="--c:2/6;--t:1/7"><div class="card qt"><div class="it it-quote" style="--ar:1.05"><blockquote class="q q-s"><p>you don’t get a 3 sharpe by taking the day off</p></blockquote></div></div></figure>
+<figure class="p s3 a-s up" style="--c:7/11;--t:7/13"><div class="card"><div class="it it-image" style="--ar:0.8"><div class="fr" style="--ar:0.8"><img src="media/larger-than-yourself.webp" width="968" height="1210" alt="A lone penguin walking away across an ice plain toward distant mountains. Text: The urge to seek something larger than yourself." loading="lazy" decoding="async"></div></div></div></figure>
+</main>
+<footer class="foot"><a class="u u1" href="/">sudolabel</a><a class="u u1" href="#top">back to the top</a></footer>
+<script>
+/* player.js: a printed control bar for clips, and one-clip-at-a-time muted autoplay.
+   Markup it expects (works without this script, through the native controls):
+     <div class="vp" data-d="118.8">                  data-d: duration in seconds, shown before the clip loads
+       <video src="…" poster="…" muted playsinline loop preload="none" controls aria-label="…"></video>
+     </div>
+   It removes `controls`, appends .vp-bar (play, scrub slider, time, sound) and handles Space/K, ←/→, M, Home/End.
+   Autoplay: the clip nearest the middle of the window plays, muted, one at a time; none with reduced motion.
+   A page that drives playback itself sets <html data-vp-auto="off">; play() on any clip still pauses the others.
+   window.VP = { clips, pick } for such pages. Needs player.css. */
+(() => {
+  const d = document, root = d.documentElement;
+  const rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const auto = () => !rm && root.dataset.vpAuto !== "off";
+  const clips = [];
+  const fmt = (s) => {
+    s = Math.max(0, Math.floor(s || 0));
+    const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = String(s % 60).padStart(2, "0");
+    return h ? `${h}:${String(m).padStart(2, "0")}:${x}` : `${m}:${x}`;
+  };
+  const ICON = {
+    play: '<svg viewBox="0 0 16 16" aria-hidden="true"><path class="pl" d="M4.5 2.8v10.4L13 8z"/><path class="pa" d="M4 3h2.8v10H4zM9.2 3H12v10H9.2z"/></svg>',
+    snd: '<svg viewBox="0 0 16 16" aria-hidden="true"><path class="bx" d="M2.5 6h2.2L8 3.2v9.6L4.7 10H2.5z"/><path class="w" d="M10.4 5.6a3.4 3.4 0 0 1 0 4.8M12.3 3.8a6 6 0 0 1 0 8.4"/><path class="x" d="M10.5 6l4 4M14.5 6l-4 4"/></svg>',
+  };
+
+  // state shared by every clip: the one a hand chose, the one under the pointer, the ones in the middle band
+  let pin = null, over = null, timer = 0;
+  const seen = new Set();
+  const quiet = new WeakSet();          // pauses made by this script, so they are not read as a hand's choice
+  const hush = (c) => { if (!c.v.paused) { quiet.add(c.v); c.v.pause(); } };
+  const start = (c) => { c.v.preload = "auto"; const p = c.v.play(); if (p) p.catch(() => {}); };
+
+  const near = () => {
+    let best = null, bd = Infinity;
+    const mid = innerHeight / 2;
+    for (const c of seen) {
+      if (c.held) continue;
+      const r = c.v.getBoundingClientRect(), dd = Math.abs(r.top + r.height / 2 - mid);
+      if (dd < bd) { bd = dd; best = c; }
+    }
+    return best;
+  };
+  const pick = () => {
+    timer = 0;
+    const want = d.hidden ? null : pin || (auto() ? (over && !over.held ? over : null) || near() : null);
+    for (const c of clips) if (c !== want) hush(c);
+    if (want && want.v.paused && !want.drag) start(want);
+  };
+  const soon = () => { if (!timer) timer = setTimeout(pick, 90); };
+
+  const band = new IntersectionObserver((es) => {
+    for (const e of es) { const c = e.target.vpc; if (e.isIntersecting) seen.add(c); else seen.delete(c); }
+    soon();
+  }, { rootMargin: "-22% 0px -22% 0px" });
+  // a clip that leaves the window forgets the hand: it is no longer held, chosen, or allowed to speak
+  const away = new IntersectionObserver((es) => {
+    for (const e of es) {
+      const c = e.target.vpc;
+      if (e.isIntersecting) continue;
+      c.held = false;
+      if (pin === c) pin = null;
+      setMuted(c, true);
+      hush(c);
+    }
+  });
+  addEventListener("scroll", () => { if (seen.size > 1) soon(); }, { passive: true });
+  d.addEventListener("visibilitychange", pick);
+
+  const setMuted = (c, m) => { c.v.muted = m; c.snd.setAttribute("aria-pressed", String(!m)); };
+
+  const enhance = (el) => {
+    const v = el.querySelector("video");
+    if (!v || el.vpc) return;
+    const bar = d.createElement("div");
+    bar.className = "vp-bar";
+    bar.innerHTML = `<button class="vp-pp" type="button" aria-label="play">${ICON.play}</button>`
+      + `<div class="vp-tr" role="slider" tabindex="0" aria-label="seek" aria-valuemin="0"><i class="vp-buf"></i><i class="vp-run"></i><i class="vp-head"></i></div>`
+      + `<span class="vp-t"><span class="vp-c">0:00</span><span class="vp-s"> / </span><span class="vp-d"></span></span>`
+      + `<button class="vp-snd" type="button" aria-label="sound" aria-pressed="false">${ICON.snd}</button>`;
+    el.append(bar);
+    const q = (s) => bar.querySelector(s);
+    const c = { el, v, pp: q(".vp-pp"), tr: q(".vp-tr"), cur: q(".vp-c"), dur: q(".vp-d"), snd: q(".vp-snd"), held: false, drag: false, seek: null };
+    el.vpc = v.vpc = c;
+    clips.push(c);
+    v.controls = false; v.muted = true;
+    el.classList.add("vp-on");
+    const len = () => (isFinite(v.duration) && v.duration) || +el.dataset.d || 0;
+    const at = () => (c.seek != null ? c.seek : v.currentTime);
+
+    // time is drawn on the clip's own events; the only frames asked for are while a finger or pointer drags
+    const draw = () => {
+      const D = len(), t = at(), p = D ? Math.min(1, t / D) : 0;
+      el.style.setProperty("--p", p.toFixed(4));
+      c.cur.textContent = fmt(t);
+      c.dur.textContent = D ? fmt(D) : "–:––";
+      c.tr.setAttribute("aria-valuemax", String(Math.round(D)));
+      c.tr.setAttribute("aria-valuenow", String(Math.round(t)));
+      c.tr.setAttribute("aria-valuetext", `${fmt(t)} of ${D ? fmt(D) : "unknown"}`);
+    };
+    const buf = () => {
+      const D = len(), b = v.buffered;
+      let e = 0;
+      for (let i = 0; i < b.length; i++) if (b.start(i) <= v.currentTime + 0.5) e = Math.max(e, b.end(i));
+      el.style.setProperty("--b", D ? Math.min(1, e / D).toFixed(4) : "0");
+    };
+    const state = () => {
+      const on = !v.paused;
+      if (on) c.held = false;
+      el.classList.toggle("vp-held", c.held);
+      el.classList.toggle("vp-play", on);
+      c.pp.setAttribute("aria-label", on ? "pause" : "play");
+    };
+    v.addEventListener("timeupdate", draw);
+    v.addEventListener("durationchange", draw);
+    v.addEventListener("progress", buf);
+    v.addEventListener("seeked", buf);
+    v.addEventListener("loadedmetadata", () => { if (c.seek != null) { v.currentTime = c.seek; if (!c.drag) c.seek = null; } draw(); buf(); });
+    v.addEventListener("play", () => {
+      state();
+      // one clip at a time, whoever started it
+      for (const o of clips) if (o !== c) hush(o);
+    });
+    v.addEventListener("pause", () => {
+      state();
+      if (quiet.has(v)) { quiet.delete(v); return; }
+      if (!c.drag) { c.held = true; if (pin === c) pin = null; }
+      el.classList.toggle("vp-held", c.held);
+    });
+
+    // before the clip has loaded, a seek is kept and applied once its length is known
+    const seekTo = (t) => {
+      const D = len();
+      c.seek = Math.max(0, Math.min(D ? D - 0.05 : 0, t));
+      if (v.readyState >= 1) { v.currentTime = c.seek; if (!c.drag) c.seek = null; }
+      else if (!c.asked) { c.asked = true; v.preload = "auto"; v.load(); }
+      draw();
+    };
+    const toggle = () => {
+      if (v.paused) { c.held = false; pin = c; start(c); } else { pin = pin === c ? null : pin; v.pause(); }
+    };
+    const mute = () => {
+      const on = v.muted;
+      for (const o of clips) if (o !== c && !o.v.muted) setMuted(o, true);
+      setMuted(c, !on);
+      if (on) { pin = c; c.held = false; if (v.paused) start(c); }
+    };
+    c.pp.addEventListener("click", toggle);
+    c.snd.addEventListener("click", mute);
+    v.addEventListener("click", toggle);
+
+    // scrubbing: the track follows the pointer; frames are asked for only while it moves
+    let raf = 0, nx = 0, was = false;
+    const frac = (x) => { const r = c.tr.getBoundingClientRect(); return Math.max(0, Math.min(1, (x - r.left) / r.width)); };
+    const apply = () => { raf = 0; seekTo(frac(nx) * len()); };
+    c.tr.addEventListener("pointerdown", (e) => {
+      if (e.button) return;
+      c.tr.setPointerCapture(e.pointerId);
+      was = !v.paused; c.drag = true; el.classList.add("vp-drag");
+      if (was) v.pause();
+      nx = e.clientX; apply();
+    });
+    c.tr.addEventListener("pointermove", (e) => { if (!c.drag) return; nx = e.clientX; if (!raf) raf = requestAnimationFrame(apply); });
+    const end = () => {
+      if (!c.drag) return;
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      c.drag = false; el.classList.remove("vp-drag");
+      seekTo(c.seek != null ? c.seek : v.currentTime);
+      if (was) { pin = c; start(c); }
+    };
+    c.tr.addEventListener("pointerup", (e) => { nx = e.clientX; apply(); end(); });
+    c.tr.addEventListener("pointercancel", end);
+    c.tr.addEventListener("lostpointercapture", end);
+
+    // keys anywhere on the clip: Space/K play, arrows step five seconds, M sound, Home/End the ends
+    el.addEventListener("keydown", (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const onBtn = e.target.closest("button");
+      const k = e.key;
+      if ((k === " " || k === "Enter") && onBtn) return;
+      if (k === " " || k === "k" || k === "K") toggle();
+      else if (k === "ArrowRight" || k === "ArrowUp" && e.target === c.tr) seekTo(at() + 5);
+      else if (k === "ArrowLeft" || k === "ArrowDown" && e.target === c.tr) seekTo(at() - 5);
+      else if (k === "Home" && e.target === c.tr) seekTo(0);
+      else if (k === "End" && e.target === c.tr) seekTo(len());
+      else if (k === "m" || k === "M") mute();
+      else return;
+      e.preventDefault();
+    });
+    el.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { over = c; soon(); } });
+    el.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse" && over === c) { over = null; soon(); } });
+    draw();
+    band.observe(v); away.observe(v);
+  };
+
+  root.classList.add("vp-js");
+  d.querySelectorAll(".vp").forEach(enhance);
+  window.VP = { clips, pick, enhance };
+})();
+</script>
+</body>
+</html>
