@@ -67,13 +67,14 @@ a{color:inherit;text-decoration:none}
 h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-serif;font-stretch:108%;letter-spacing:-.012em}
 
 /* the sheet: one run of pieces on a twelve-column grid; each row is composed, nothing is filed under a heading */
-.sheet{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(20px,2.4vw,34px);row-gap:clamp(52px,5.8vw,92px);
+.sheet{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(28px,3.2vw,48px);row-gap:clamp(60px,6.4vw,104px);
   padding:clamp(56px,6.4vw,96px) var(--gut) clamp(72px,8vw,128px)}
-.p{grid-column:var(--c);min-width:0;margin-top:var(--dy,0)}
+/* a piece is one sheet of stock: the picture is mounted on it and every word that belongs to the picture is written on it
+   too, so nothing that describes a piece ever sits on the bare paper between two of them */
+.p{--mp:clamp(10px,1vw,14px);grid-column:var(--c);min-width:0;margin-top:var(--dy,0);position:relative;padding:var(--mp);
+  background:var(--grain),var(--weave),var(--stock,var(--stock-sand));box-shadow:var(--paper)}
 .a-s{align-self:start}.a-c{align-self:center}.a-e{align-self:end}
-
-/* a piece: the picture mounted on card stock, the words underneath on the bare paper */
-.card{position:relative;padding:clamp(10px,1vw,14px);background:var(--grain),var(--weave),var(--stock,var(--stock-sand));box-shadow:var(--paper)}
+.card{position:relative}
 .s0{--stock:var(--stock-lilac);--ink:var(--green)}.s1{--stock:var(--stock-sage);--ink:var(--orange)}.s2{--stock:var(--stock-sand);--ink:var(--lilac)}.s3{--stock:var(--stock-lilac);--ink:var(--ochre)}
 .s4{--stock:var(--stock-sage);--ink:var(--lilac)}.s5{--stock:var(--stock-sand);--ink:var(--green)}
 .its{display:flex;gap:clamp(8px,.9vw,12px);align-items:flex-start}
@@ -86,10 +87,19 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
 .fr video{cursor:pointer}
 .tag{position:absolute;left:8px;top:8px;z-index:2;padding:5px 7px 4px;background:var(--stone);box-shadow:2px 2px 0 var(--choc);
   font:650 9.5px/1 "Anybody",sans-serif;font-stretch:128%;letter-spacing:.24em;text-transform:uppercase}
-.icap{margin-top:10px;font-size:15px;line-height:1.4;text-wrap:pretty}
+
+/* three levels of words, and only three:
+   1  quote    the heavy display italic, opened by a big mark in the sheet's ink
+   2  caption  the body face at one size, opened by a short pen stroke in the sheet's ink
+   3  meta     who said it, then/now, the speakers, the foot: spaced capitals in the label face
+   The opening mark is the same ink as the misregistered edge under the picture above it, so the words read as printed
+   in the same pass as their picture. A caption is always one fixed step under its picture, on its left edge and measure. */
+.cap,.icap{--tick:var(--ink);position:relative;margin-top:14px;padding-top:13px;font-size:15px;line-height:1.45;text-wrap:pretty}
+.cap::before,.icap::before{content:"";position:absolute;left:-1px;top:0;width:32px;height:6px;background:var(--tick);
+  -webkit-mask:var(--v1) 0 0/100% 100% no-repeat;mask:var(--v1) 0 0/100% 100% no-repeat}
 
 /* words that are the piece: set big in the heavy italic, printed straight onto the stock */
-.qt{padding:clamp(18px,2vw,30px) clamp(16px,1.8vw,26px) clamp(18px,1.8vw,26px)}
+.p.pq{padding:clamp(18px,2vw,30px) clamp(16px,1.8vw,26px) clamp(18px,1.8vw,26px)}
 .q{position:relative;font:italic 640 22px/1.24 "Anybody",sans-serif;font-stretch:96%;letter-spacing:-.004em;text-wrap:pretty}
 .q::before{content:"\201C";display:block;height:.5em;margin:-.06em 0 .12em;font:italic 900 2.6em/1 "Anybody",sans-serif;color:var(--ink)}
 .q-s{font-size:20px}.q-xl{font-size:clamp(20px,1.6vw,24px);line-height:1.28}
@@ -107,18 +117,25 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
 .pg dl>div+div{margin-top:10px}
 .pg dt{font:650 9.5px/1 "Anybody",sans-serif;font-stretch:128%;letter-spacing:.24em;text-transform:uppercase;margin-bottom:5px;color:var(--gink)}
 
-.cap{margin-top:14px;padding-right:8px;font-size:15px;line-height:1.45;max-width:62ch;text-wrap:pretty}
+.cap{max-width:64ch;padding-right:8px}
+.p>.cap{margin-bottom:4px}
+/* a caption with parts: its first line is the title, and what follows hangs from it on one indent in the same column */
+.cap:has(.gt,.sub)>.say:first-child{font-weight:600}
 .cap .say+.say{margin-top:8px}
-.cap .gt{margin-top:8px}
-.cap .gt li{position:relative;padding-left:1.2em}
+.cap .gt{margin-top:6px}
+.cap .gt li{position:relative;padding-left:1.25em}
+.cap .gt li+li{margin-top:2px}
 .cap .gt li::before{content:">";position:absolute;left:0;color:var(--gink);font-weight:700}
-.cap .sub{margin-top:10px;padding-left:12px;border-left:2px solid var(--ochre);font-size:15px}
+.cap .sub{margin-top:8px;padding-left:calc(1.25em - 2px);border-left:2px solid var(--ink)}
+/* words with a speaker are a quotation wherever they sit: the display italic, at the caption's place under the picture */
+.cap.qc .say{font:italic 640 18px/1.3 "Anybody",sans-serif;font-stretch:96%;letter-spacing:-.004em}
+.cap.qc .by{margin-top:12px}
 
-/* her own post: the pictures on their stock, her words beside them as a quotation, signed and linked */
-.pq-said{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:clamp(28px,3.4vw,56px);align-items:center}
-.said{padding-right:clamp(0px,2vw,32px)}
+/* her own post: the pictures and her words about them on one sheet of her stock, the words beside the pictures they are about */
+.pq-said{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:center}
+.said{padding:clamp(12px,1.6vw,24px) clamp(14px,2.2vw,36px) clamp(12px,1.6vw,24px) clamp(22px,2.6vw,44px)}
 .q-said{font-size:clamp(19px,1.5vw,22px);line-height:1.34;--ink:var(--orange)}
-.said .who{margin-top:20px;font-size:12px;letter-spacing:.18em}
+.said .who{margin-top:18px}
 .arr{display:inline-block;margin-left:.5em;font:600 13px/1 "Instrument Sans",sans-serif;letter-spacing:0;transform:translateY(-1px)}
 
 /* the FedEx spread: one sheet folded down the middle, two facing leaves. Each leaf is its own passage, quoted exactly,
@@ -131,28 +148,31 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
 .leaf+.leaf{background:linear-gradient(var(--fold),rgba(43,26,18,.12),rgba(255,255,255,.18) 1.5px,rgba(43,26,18,.04) 8px,transparent 40px)}
 .spread .sc{font-size:1.06em;line-height:1}
 
-/* groups: one card, the pieces inside it sharing its edges; the trio and the strip keep their own captions under each */
-.grp .icap{font-size:14.5px;padding-right:4px}
+/* groups: one sheet, the pieces on it sharing its edges; where each carries its own caption the pieces stand further apart
+   than a caption stands from its picture, so a caption can only be read as the one above it */
+.its:has(.icap){gap:clamp(18px,1.9vw,28px)}
+.grp .icap{padding-right:4px}
 .g-trump .pg{transform:rotate(.3deg)}
 
 @media (max-width:1040px){
   :root{--pad:32px}
   .p{grid-column:var(--t)}
-  .sheet{column-gap:20px}
+  .sheet{column-gap:24px}
 }
 @media (max-width:640px){
   :root{--pad:20px}
   .top{flex-direction:column;align-items:flex-start;gap:14px}
   .mark{width:124px}
   h1{font-size:46px}
-  .sheet{grid-template-columns:minmax(0,1fr);row-gap:52px;padding-top:40px}
+  .sheet{grid-template-columns:minmax(0,1fr);row-gap:56px;padding-top:40px}
   .p{grid-column:1;margin-top:0;align-self:start}
   /* an upright piece is set narrower rather than cropped, and alternates sides down the sheet */
   .p.up{width:min(78%,calc(70svh * .8 + 24px))}
   .p.up:nth-child(even){justify-self:end}
   .pq-said{grid-template-columns:minmax(0,1fr);row-gap:18px}
-  .said{padding-right:0}
+  .said{padding:2px 4px 6px}
   .its{flex-direction:column;gap:16px}
+  .its:has(.icap){gap:30px}
   .its>.it{flex:none;width:100%}
   /* pictures that belong together sit side by side; clips stack so each keeps a bar wide enough to scrub */
   .its:not(:has(video,.pg)){flex-direction:row}
@@ -160,8 +180,8 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
   /* the book turns: one leaf above the other, the fold across the sheet between them */
   .spread{grid-template-columns:minmax(0,1fr)}
   .leaf{--fold:180deg;padding:24px 22px 26px}
-  .icap,.pg{font-size:15.5px}
-  .cap{font-size:16px}
+  .pg{font-size:15.5px}
+  .cap,.icap{font-size:16px}
   .q{font-size:20px}.q-s{font-size:19px}
 }
 /* the end of the run: a ruled foot and the way home, in the label face */
@@ -224,6 +244,26 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
 }
 @media (prefers-reduced-motion:reduce){.vp-bar{transition:none}}
 
+/* trump: the question leads the mat; clip, transcript and clip share one row (the transcript stretches to it),
+   and only the last clip carries its own words, on the row below. The last figure is display:contents so its
+   frame and caption can sit in different rows. DOM order stays clip, page, clip for phones. */
+.g-trump .glead{margin:0 0 clamp(16px,1.6vw,22px);padding-top:13px;font-size:clamp(16px,1.3vw,18px)}
+.g-trump .its{display:grid;grid-template-columns:1.463fr 1.08fr 1.773fr;gap:0 clamp(12px,1.3vw,20px);align-items:start}
+.g-trump .its>.it:nth-child(1){grid-area:1/1}
+.g-trump .it-page{grid-area:1/2;align-self:stretch;display:flex}
+.g-trump .its>.it:nth-child(3){display:contents}
+.g-trump .its>.it:nth-child(3)>.fr{grid-area:1/3}
+.g-trump .its>.it:nth-child(3)>.icap{grid-area:2/3}
+.g-trump .it-page .pg{flex:1;font-size:14px;line-height:1.48;transform:none}
+.g-trump .it-page .pg dl>div+div{margin-top:8px}
+@media (max-width:900px){
+  .g-trump .its{grid-template-columns:1fr 1fr;row-gap:clamp(12px,1.3vw,20px)}
+  .g-trump .its>.it:nth-child(3)>.fr{grid-area:2/1/3/3}
+  .g-trump .its>.it:nth-child(3)>.icap{grid-area:3/1/4/3;margin-top:-6px}
+}
+@media (max-width:640px){.g-trump .its{display:flex;flex-direction:column;gap:16px}.g-trump .its>.it:nth-child(3)>.fr{width:100%}.g-trump .its>.it:nth-child(3)>.icap{margin-top:-2px}.g-trump .it-page .pg{font-size:15.5px}}
+/* between 901 and 1240 the transcript is taller than the clips: let it run into the caption row so that caption still hugs its clip */
+@media (min-width:901px) and (max-width:1240px){.g-trump .it-page{grid-area:1/2/3/3;align-self:start}.g-trump .it-page .pg{font-size:13.5px}}
 </style>
 </head>
 <body>
@@ -251,7 +291,7 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
 <figure class="p s4 a-s" style="--c:2/7;--t:1/8"><div class="card"><div class="it it-video" style="--ar:1.333"><div class="fr vp" style="--ar:1.333" data-d="67.2"><video src="media/josh-allen.mp4" poster="media/josh-allen.jpg" width="720" height="540" muted playsinline loop preload="none" controls aria-label="Josh Allen, before anyone recruited him"></video></div></div></div><figcaption class="cap"><p class="say">I sometimes lie awake at night wondering if there are any other Josh Allens out there who never got their opportunity</p></figcaption></figure>
 <figure class="p s5 a-c pq" style="--c:8/12;--t:8/13"><div class="card qt"><div class="it it-quote" style="--ar:1.2"><blockquote class="q q-m"><p>everyone who succeeded at anything at one point in time had no experience doing the thing they succeeded at</p></blockquote></div></div></figure>
 <figure class="p s0 a-c pq" style="--c:1/8;--t:1/9"><div class="card qt"><div class="it it-quote" style="--ar:1.75"><blockquote class="q q-xl"><p>As you become an adult, you realize that things around you weren’t just always there; people made them happen. But only recently have I started to internalize how much tenacity <em>everything</em> requires. That hotel, that park, that railway. The world is a museum of passion projects.</p><footer class="who">John Collison</footer></blockquote></div></div></figure>
-<figure class="p s1 a-s up" style="--c:9/12;--t:9/13"><div class="card"><div class="it it-video" style="--ar:0.659"><div class="fr vp" style="--ar:0.659" data-d="30.3"><video src="media/jobs.mp4" poster="media/jobs.jpg" width="406" height="616" muted playsinline loop preload="none" controls aria-label="Objects people made, set to Steve Jobs"></video></div></div></div><figcaption class="cap"><p class="say">“Everything around you that you call life was made by people no smarter than you.”</p><p class="by">Steve Jobs</p></figcaption></figure>
+<figure class="p s1 a-s up" style="--c:9/12;--t:9/13"><div class="card"><div class="it it-video" style="--ar:0.659"><div class="fr vp" style="--ar:0.659" data-d="30.3"><video src="media/jobs.mp4" poster="media/jobs.jpg" width="406" height="616" muted playsinline loop preload="none" controls aria-label="Objects people made, set to Steve Jobs"></video></div></div></div><figcaption class="cap qc"><p class="say">“Everything around you that you call life was made by people no smarter than you.”</p><p class="by">Steve Jobs</p></figcaption></figure>
 <figure class="p s2 grp g-fedex pspread" style="--c:3/11;--t:1/13"><div class="card"><div class="spread"><div class="leaf"><p><span class="sc">At age thirty</span> Frederick Wallace Smith was in deep trouble. His dream of creating Federal Express had become too expensive and was fast fizzling out. He had exhausted his father’s Greyhound Bus millions. He was in hock for 15 or 20 million more. He appeared in danger of losing his cargo jet planes and also his wife. His own board of directors had fired him as CEO. Now the FBI accused him of forging papers to get a $2 million bank loan and was trying to send him to prison. He thought of suicide.</p></div><div class="leaf"><p>In the early days of FedEx, Smith had to go to great lengths to keep the company afloat. In one instance, after a crucial business loan was denied, he took the company’s last $5,000 to Las Vegas and won $27,000 gambling on blackjack to cover the company’s $24,000 fuel bill. It kept FedEx alive for one more week.</p></div></div></div><figcaption class="cap"><p class="say">Fred Smith, who founded FedEx. 1944–2025.</p></figcaption></figure>
 <figure class="p s3 a-s up" style="--c:2/6;--t:1/7"><div class="card"><div class="it it-image" style="--ar:0.805"><div class="fr" style="--ar:0.805"><img src="media/debris.webp" width="660" height="820" alt="A man crouched in a hangar, looking over rocket debris laid out in piles across the floor." loading="lazy" decoding="async"></div></div></div></figure>
 <figure class="p s4 a-e" style="--c:7/11;--t:7/13"><div class="card"><div class="it it-video" style="--ar:1.006"><div class="fr vp" style="--ar:1.006" data-d="39.6"><video src="media/lee-kuan-yew.mp4" poster="media/lee-kuan-yew.jpg" width="720" height="716" muted playsinline loop preload="none" controls aria-label="A Lee Kuan Yew edit"></video></div></div></div></figure>
@@ -263,7 +303,7 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
 <figure class="p s4 a-c pq" style="--c:8/12;--t:8/13"><div class="card qt"><div class="it it-quote" style="--ar:1.05"><blockquote class="q q-s"><p>Courage is far shorter in supply than genius.</p><span class="who">Peter Thiel</span></blockquote></div></div></figure>
 <figure class="p s5 a-c pq" style="--c:1/6;--t:1/8"><div class="card qt"><div class="it it-quote" style="--ar:1.2"><blockquote class="q q-m"><p>There is $10,000,000 stuck inside of your laptop right now, you just need to figure out how to get it out.</p><footer class="who"><a class="u u1" href="https://x.com/chloe21e8/status/1755323533394350300" rel="noopener">@chloe21e8</a></footer></blockquote></div></div></figure>
 <figure class="p s0 a-s" style="--c:7/11;--t:8/13"><div class="card"><div class="it it-image" style="--ar:1"><div class="fr" style="--ar:1"><img src="media/hawk.webp" width="1080" height="1080" alt="A hawk perched on a power line with an arrow straight through its body." loading="lazy" decoding="async"></div></div></div><figcaption class="cap"><p class="say">All defeat is psychological until death</p></figcaption></figure>
-<figure class="p s1 grp g-trump" style="--c:1/13;--t:1/13"><div class="card"><div class="its n3 mx"><div class="it it-video" style="--ar:1.463"><div class="fr vp" style="--ar:1.463" data-d="22.0"><video src="media/trump-quit.mp4" poster="media/trump-quit.jpg" width="720" height="492" muted playsinline loop preload="none" controls aria-label="Trump: never ever quit"></video></div></div><figure class="it it-page" style="--ar:0.82"><div class="pg pg-a"><dl><div><dt>Caller</dt><dd>I’d like to know how you handle your stress.</dd></div><div><dt>Trump</dt><dd>I try and tell myself it doesn’t matter. Nothing matters. If you tell yourself it doesn’t matter—like you do shows, you do this, you do that, and then you have earthquakes in India where 400,000 people get killed. Honestly, it doesn’t matter.</dd></div></dl></div><figcaption class="icap">An answer to “What massively improved your mental health?”</figcaption></figure><figure class="it it-video" style="--ar:1.773"><div class="fr vp" style="--ar:1.773" data-d="17.8"><video src="media/it-always-does.mp4" poster="media/it-always-does.jpg" width="720" height="406" muted playsinline loop preload="none" controls aria-label="Trump: it will all work out"></video></div><figcaption class="icap">Bottom line it will all work out. You know why? It always does.</figcaption></figure></div></div></figure>
+<figure class="p s1 grp g-trump" style="--c:1/13;--t:1/13"><div class="card"><p class="icap glead">An answer to “What massively improved your mental health?”</p><div class="its n3 mx"><div class="it it-video" style="--ar:1.463"><div class="fr vp" style="--ar:1.463" data-d="22.0"><video src="media/trump-quit.mp4" poster="media/trump-quit.jpg" width="720" height="492" muted playsinline loop preload="none" controls aria-label="Trump: never ever quit"></video></div></div><div class="it it-page" style="--ar:1.08"><div class="pg pg-a"><dl><div><dt>Caller</dt><dd>I’d like to know how you handle your stress.</dd></div><div><dt>Trump</dt><dd>I try and tell myself it doesn’t matter. Nothing matters. If you tell yourself it doesn’t matter—like you do shows, you do this, you do that, and then you have earthquakes in India where 400,000 people get killed. Honestly, it doesn’t matter.</dd></div></dl></div></div><figure class="it it-video" style="--ar:1.773"><div class="fr vp" style="--ar:1.773" data-d="17.8"><video src="media/it-always-does.mp4" poster="media/it-always-does.jpg" width="720" height="406" muted playsinline loop preload="none" controls aria-label="Trump: it will all work out"></video></div><figcaption class="icap">Bottom line it will all work out. You know why? It always does.</figcaption></figure></div></div></figure>
 <figure class="p s2 a-s" style="--c:1/7;--t:1/7"><div class="card"><div class="it it-image" style="--ar:1.443"><div class="fr" style="--ar:1.443"><img src="media/high-risk.webp" width="1600" height="1109" alt="A film still of three men in a meeting. Subtitle: Yeah, well, everything’s high risk if you’re a pussy." loading="lazy" decoding="async"></div></div></div></figure>
 <figure class="p s3 a-e grp g-golf" style="--c:7/13;--t:7/13"><div class="card"><div class="its n2"><div class="it it-image" style="--ar:1"><div class="fr" style="--ar:1"><img src="media/already-won.webp" width="1080" height="1080" alt="A golfer crouched on the green beside his crawling baby. Text: You’ve already won." loading="lazy" decoding="async"></div></div><div class="it it-image" style="--ar:1"><div class="fr" style="--ar:1"><img src="media/another-major.webp" width="1080" height="1080" alt="The same golfer mid-swing against a blue sky. Text: But another major never hurt." loading="lazy" decoding="async"></div></div></div></div></figure>
 <figure class="p s4 a-c pq" style="--c:1/8;--t:1/8"><div class="card qt"><div class="it it-quote" style="--ar:1.75"><blockquote class="q q-xl"><p>I’m now convinced that the only thing that matters long-term is to be directionally correct. It does not matter how you get there or how many stumbles you make along the way. If you want proof of this, look at the owner of <span class="ed">[</span>X<span class="ed">]</span>.</p><footer class="who">Nikita Bier</footer></blockquote></div></div></figure>
