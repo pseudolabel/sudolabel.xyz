@@ -227,28 +227,24 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
 .vp-t{flex:none;padding:0 10px 0 0;white-space:nowrap;letter-spacing:.01em}
 .vp-c{display:inline-block;min-width:3ch;text-align:right}
 
-/* volume: a short track left of the sound button, the same groove and hairline head as the seek track. It is folded
-   away until sound is on, or a pointer or key reaches the sound button, so a silent bar stays as it was */
-.vp-vt{position:relative;flex:none;width:0;height:32px;margin:0;overflow:hidden;visibility:hidden;cursor:pointer;touch-action:none;
-  transition:width .16s var(--fast,ease-out),margin .16s var(--fast,ease-out),visibility 0s .16s}
-.vp-bar .vp-vt+button{border-left:0}
-.vp-vt::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(43,26,18,.38)}
-.vp-vt i{position:absolute;left:0;top:50%;pointer-events:none}
-.vp-vrun{width:100%;height:3px;margin-top:-1.5px;background:var(--choc,#2b1a12);transform-origin:0 50%;transform:scaleX(var(--vol,1))}
-.vp-vt .vp-vhead{width:1.5px;height:12px;margin:-6px 0 0 -.75px;background:var(--choc,#2b1a12);left:calc(var(--vol,1) * 100%)}
-.vp-vdrag .vp-vhead{height:16px;margin-top:-8px;background:var(--green,#0a8036)}
-.vp-bar:has(.vp-snd[aria-pressed=true]) .vp-vt,.vp-bar:has(.vp-snd:hover) .vp-vt,.vp-bar:has(.vp-snd:focus-visible) .vp-vt,
-.vp-vt:hover,.vp-vt:focus-visible,.vp-vdrag .vp-vt{width:56px;margin:0 12px 0 10px;overflow:visible;visibility:visible;transition-delay:0s}
-.vp-vt:focus-visible{outline-offset:2px}
+/* volume: the sound button carries a slip of the same paper above it, a vertical track with a hairline head.
+   It rises for a pointer over the button (and stays while the pointer climbs the 9px gap into it), for a key on the
+   button, and while dragging; it drops a beat late so a pointer passing by doesn't flicker it */
+.vp-vol{position:relative;flex:none;display:flex;border-left:1px solid rgba(43,26,18,.28)}
+.vp-vpop{position:absolute;left:0;bottom:100%;width:32px;padding-bottom:9px;opacity:0;visibility:hidden;transform:translateY(4px);
+  transition:opacity .12s var(--fast,ease-out) .1s,transform .16s var(--fast,ease-out) .1s,visibility 0s .26s}
+.vp-vol:hover .vp-vpop,.vp-vol:has(:focus-visible) .vp-vpop,.vp-vdrag .vp-vpop{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.vp-vt{position:relative;display:block;height:clamp(72px,36cqw,104px);cursor:pointer;touch-action:none;
+  background:var(--stone,#ebe5d6);box-shadow:0 0 0 1.5px var(--choc,#2b1a12),3px 3px 0 1.5px var(--choc,#2b1a12)}
+.vp-vt::before{content:"";position:absolute;left:50%;top:10px;bottom:10px;width:1px;margin-left:-.5px;background:rgba(43,26,18,.38)}
+.vp-vt i{position:absolute;left:50%;bottom:10px;pointer-events:none}
+.vp-vrun{width:3px;height:calc(100% - 20px);margin-left:-1.5px;background:var(--choc,#2b1a12);transform-origin:50% 100%;transform:scaleY(var(--vol,1))}
+.vp-vt .vp-vhead{width:12px;height:1.5px;margin:0 0 -.75px -6px;background:var(--choc,#2b1a12);bottom:calc(10px + (100% - 20px) * var(--vol,1))}
+.vp-vdrag .vp-vt .vp-vhead{width:16px;margin-left:-8px;background:var(--green,#0a8036)}
+.vp-bar .vp-vt:focus-visible{outline-offset:3px}
 
 /* a narrow clip keeps the current time and drops the total, which the slider still announces */
 @container (max-width:250px){.vp-s,.vp-d{display:none}.vp-tr{margin:0 10px}}
-/* on a narrow clip an open volume track is shorter and takes the total time's place, so the seek track keeps its reach */
-@container (max-width:420px){
-  .vp-bar:has(.vp-snd[aria-pressed=true]) .vp-vt,.vp-bar:has(.vp-snd:hover) .vp-vt,.vp-bar:has(.vp-snd:focus-visible) .vp-vt,.vp-bar:has(.vp-vt:hover) .vp-vt,.vp-bar:has(.vp-vt:focus-visible) .vp-vt,.vp-vdrag .vp-bar .vp-vt{width:44px;margin:0 10px 0 8px}
-  .vp-bar:has(.vp-snd[aria-pressed=true]) :is(.vp-s,.vp-d),.vp-bar:has(.vp-snd:hover) :is(.vp-s,.vp-d),.vp-bar:has(.vp-snd:focus-visible) :is(.vp-s,.vp-d),.vp-bar:has(.vp-vt:hover) :is(.vp-s,.vp-d),.vp-bar:has(.vp-vt:focus-visible) :is(.vp-s,.vp-d),.vp-vdrag .vp-bar :is(.vp-s,.vp-d){display:none}
-}
-@container (max-width:250px){.vp-vt{display:none}}
 @container (max-width:170px){.vp-t{display:none}}
 
 /* touch: always there, but quiet: a thin see-through strip with no ring or rules; the ink stays full so the time keeps
@@ -261,8 +257,11 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
   .vp-tr{height:28px;margin:0 6px}
   .vp-tr .vp-head{height:12px;margin-top:-6px}.vp-drag .vp-tr .vp-head{height:18px;margin-top:-9px}
   .vp-held .vp-bar,.vp-drag .vp-bar,.vp:focus-within .vp-bar{background:rgba(235,229,214,.94)}
+  .vp-vol{border-left:0}
+  /* a phone has its own volume keys */
+  .vp-vpop{display:none}
 }
-@media (prefers-reduced-motion:reduce){.vp-bar,.vp-vt{transition:none}}
+@media (prefers-reduced-motion:reduce){.vp-bar,.vp-vpop{transition:none}}
 
 /* trump: clip, transcript and clip share one row (the transcript stretches to it),
    and only the last clip carries its own words, on the row below. The last figure is display:contents so its
@@ -340,9 +339,12 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
      <div class="vp" data-d="118.8">                  data-d: duration in seconds, shown before the clip loads
        <video src="…" poster="…" muted playsinline loop preload="none" controls aria-label="…"></video>
      </div>
-   It removes `controls`, appends .vp-bar (play, scrub slider, time, volume slider, sound) and handles Space/K, ←/→, M, Home/End.
-   Volume is one level shared by every clip. Where the browser ignores video.volume (iOS), the volume slider is left out.
-   Autoplay: the clip nearest the middle of the window plays, muted, one at a time; none with reduced motion.
+   It removes `controls`, appends .vp-bar (play, scrub slider, time, sound) and handles Space/K, ←/→, M, Home/End.
+   A click on the picture means "this one": a silent clip gets its sound and plays; a clip already speaking pauses or resumes.
+   Volume is one level shared by every clip, set on a vertical slider that rises from the sound button for a pointer or key.
+   Where the browser ignores video.volume (iOS), the slider is left out.
+   Autoplay: the clip under the pointer, else the one nearest the middle of the window, plays muted, one at a time;
+   none with reduced motion.
    A page that drives playback itself sets <html data-vp-auto="off">; play() on any clip still pauses the others.
    window.VP = { clips, pick } for such pages. Needs player.css. */
 (() => {
@@ -420,8 +422,9 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
     bar.innerHTML = `<button class="vp-pp" type="button" aria-label="play">${ICON.play}</button>`
       + `<div class="vp-tr" role="slider" tabindex="0" aria-label="seek" aria-valuemin="0"><i class="vp-buf"></i><i class="vp-run"></i><i class="vp-head"></i></div>`
       + `<span class="vp-t"><span class="vp-c">0:00</span><span class="vp-s"> / </span><span class="vp-d"></span></span>`
-      + (canVol ? `<div class="vp-vt" role="slider" tabindex="0" aria-label="volume" aria-valuemin="0" aria-valuemax="100"><i class="vp-vrun"></i><i class="vp-vhead"></i></div>` : "")
-      + `<button class="vp-snd" type="button" aria-label="sound" aria-pressed="false">${ICON.snd}</button>`;
+      + `<span class="vp-vol"><button class="vp-snd" type="button" aria-label="sound" aria-pressed="false">${ICON.snd}</button>`
+      + (canVol ? `<span class="vp-vpop"><span class="vp-vt" role="slider" tabindex="0" aria-label="volume" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100"><i class="vp-vrun"></i><i class="vp-vhead"></i></span></span>` : "")
+      + `</span>`;
     el.append(bar);
     const q = (s) => bar.querySelector(s);
     const c = { el, v, pp: q(".vp-pp"), tr: q(".vp-tr"), cur: q(".vp-c"), dur: q(".vp-d"), snd: q(".vp-snd"), vt: q(".vp-vt"), held: false, drag: false, seek: null };
@@ -500,17 +503,18 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
       else if (vol > 0 && v.muted) mute();
     };
     if (c.vt) {
-      const vfrac = (x) => { const r = c.vt.getBoundingClientRect(); return (x - r.left) / r.width; };
-      let vraf = 0, vx = 0;
+      // the run stops 10px short of either end of the slider's paper, like the CSS draws it
+      const vfrac = (y) => { const r = c.vt.getBoundingClientRect(); return (r.bottom - 10 - y) / (r.height - 20); };
+      let vraf = 0, vy = 0;
       c.vt.addEventListener("pointerdown", (e) => {
         if (e.button) return;
         c.vt.setPointerCapture(e.pointerId); el.classList.add("vp-vdrag");
-        vx = e.clientX; setVol(vfrac(vx));
+        vy = e.clientY; setVol(vfrac(vy));
       });
       c.vt.addEventListener("pointermove", (e) => {
         if (!el.classList.contains("vp-vdrag")) return;
-        vx = e.clientX;
-        if (!vraf) vraf = requestAnimationFrame(() => { vraf = 0; setVol(vfrac(vx)); });
+        vy = e.clientY;
+        if (!vraf) vraf = requestAnimationFrame(() => { vraf = 0; setVol(vfrac(vy)); });
       });
       const vend = () => { if (vraf) { cancelAnimationFrame(vraf); vraf = 0; } el.classList.remove("vp-vdrag"); };
       c.vt.addEventListener("pointerup", vend);
@@ -522,13 +526,14 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
         if (step != null) setVol(vol + step);
         else if (k === "Home") setVol(0);
         else if (k === "End") setVol(1);
+        else if (k === "Escape") c.snd.focus();
         else return;
         e.preventDefault(); e.stopPropagation();
       });
     }
     c.pp.addEventListener("click", toggle);
     c.snd.addEventListener("click", mute);
-    v.addEventListener("click", toggle);
+    v.addEventListener("click", () => (v.muted ? mute() : toggle()));
 
     // scrubbing: the track follows the pointer; frames are asked for only while it moves
     let raf = 0, nx = 0, was = false;
