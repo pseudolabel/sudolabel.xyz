@@ -257,6 +257,33 @@ button.addr{cursor:copy}
 .sq:focus-visible{outline:2px solid var(--green);outline-offset:5px}
 .sq:focus-visible::before{clip-path:inset(0)}
 
+/* the way in to inspiration stays in the corner the whole way down, on the night and on the paper alike: its own stone
+   card, with three of the prints it opens tucked behind it. its shadow is the ochre plate, so it reads on the dark too.
+   hover fans the prints out and the arrow leans in */
+.go{position:fixed;z-index:20;top:var(--top);right:var(--gut);pointer-events:none;transition:transform .32s var(--fast)}
+/* past the hero it would sit over the copy: it ducks off the top while reading down and drops back in on any scroll up */
+.go.away:not(:focus-within){transform:translateY(calc(-100% - var(--top) - 56px))}
+.go-a{position:relative;display:block;pointer-events:auto;-webkit-tap-highlight-color:transparent}
+.go .sq{height:46px;padding:0 18px 0 20px;gap:10px;grid-auto-flow:column;box-shadow:4px 4px 0 var(--ochre),4px 4px 0 1.5px var(--choc);font-size:15px}
+.go .ar{display:block;width:16px;height:10px;transition:transform .16s var(--fast)}
+.fan{position:absolute;left:16px;bottom:22px;width:34px;height:42px;pointer-events:none;transform:translateY(-14px)}
+.fan img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--choc);
+  outline:1.5px solid var(--choc);outline-offset:-1px;box-shadow:2px 2px 0 var(--choc);transform-origin:50% 100%;
+  transform:translate(var(--x),0) rotate(var(--a));transition:transform .22s var(--fast)}
+.fan img:nth-child(1){--x:-4px;--a:-14deg;--x2:-14px;--a2:-24deg}
+.fan img:nth-child(2){--x:9px;--a:-3deg;--x2:12px;--a2:-4deg}
+.fan img:nth-child(3){--x:22px;--a:10deg;--x2:38px;--a2:16deg}
+@media (hover:hover){
+  .go-a:hover .sq{transform:translate(1px,1px);box-shadow:3px 3px 0 var(--ochre),3px 3px 0 1.5px var(--choc)}
+  .go-a:hover .sq::before{clip-path:inset(0)}
+  .go-a:hover .ar{transform:translateX(3px)}
+  .go-a:hover .fan img{transform:translate(var(--x2),-10px) rotate(var(--a2))}
+}
+.go-a:active .sq{transform:translate(4px,4px);box-shadow:0 0 0 var(--ochre),0 0 0 1.5px var(--choc);transition-duration:40ms}
+.go-a:focus-visible{outline:none}
+.go-a:focus-visible .sq{outline:2px solid var(--green);outline-offset:5px}
+.go-a:focus-visible .sq::before{clip-path:inset(0)}
+
 /* ferris: claws open when you come near and shut as you leave; a click snaps them; eyes follow you */
 /* ferris walks: his plates ride together in .fer, driven from script, frame by frame, only while he is out. the
    print keeps the ground he stood on; while he's away it shows a ghost of him in the screen and where his feet were.
@@ -346,6 +373,8 @@ button.addr{cursor:copy}
   .mark{width:172px;margin-left:-8px}
   .mark .city{font-size:7px;margin-top:8px}
   .now{margin-top:24px;font-size:16px}
+  .go .sq{height:40px;padding:0 13px 0 15px;gap:8px;font-size:13.5px}
+  .fan{left:12px;bottom:18px;width:28px;height:35px;transform:translateY(-10px)}
   .view{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;overscroll-behavior-x:contain}
   .view::-webkit-scrollbar{display:none}
   .stage{--sh:calc(100% - clamp(160px,23svh,200px));left:0;bottom:0;width:auto;aspect-ratio:1600/840}
@@ -359,7 +388,7 @@ button.addr{cursor:copy}
 @supports not (animation-timeline:scroll()){html:not(.sx) .pc{position:relative}}
 @media (prefers-reduced-motion:reduce){
   .pc{position:relative}
-  .u::before,.u::after,.sq,.sq::before,.cp,.fing,.eye,.card,.card::after,.pl,.sh,h2.lab .l{transition:none!important}
+  .u::before,.u::after,.sq,.sq::before,.go,.go .ar,.fan img,.cp,.fing,.eye,.card,.card::after,.pl,.sh,h2.lab .l{transition:none!important}
   .js h2.lab .l{opacity:1;transform:none}
   .card.up{transform:none}
   .lamp{animation:none;opacity:1}
@@ -445,6 +474,8 @@ button.addr{cursor:copy}
 </filter>
 </defs></svg>
 
+<nav class="go" aria-label="inspiration"><a class="go-a" href="/inspiration/"><span class="fan" aria-hidden="true"><img src="/inspiration/media/nav-starship.webp" width="96" height="120" alt="" decoding="async"><img src="/inspiration/media/nav-alcaraz.webp" width="96" height="120" alt="" decoding="async"><img src="/inspiration/media/nav-doubt.webp" width="96" height="120" alt="" decoding="async"></span><span class="sq">inspiration<svg class="ar" viewBox="0 0 16 10" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1 5h13M10 1l4 4-4 4"/></svg></span></a></nav>
+
 <header class="land" id="land">
   <div class="plate" id="plate">
     <div class="view" id="view">
@@ -511,7 +542,7 @@ button.addr{cursor:copy}
     <div class="txt">
       <div class="blk">
         <h2 class="lab">elsewhere</h2>
-        <p class="btns"><a class="sq" href="https://x.com/sudolabel">x</a><a class="sq" href="https://github.com/pseudolabel">github</a><a class="sq" href="https://blog.sudolabel.xyz">writing</a><a class="sq" href="/inspiration/">inspiration</a></p>
+        <p class="btns"><a class="sq" href="/inspiration/">inspiration</a><a class="sq" href="https://blog.sudolabel.xyz">writing</a><a class="sq" href="https://x.com/sudolabel">x</a><a class="sq" href="https://github.com/pseudolabel">github</a></p>
       </div>
       <div class="blk">
         <h2 id="h-hi" class="lab">say hi</h2>
@@ -1114,6 +1145,20 @@ button.addr{cursor:copy}
     const a = hash(visit + k * 31 + j * 7) * Math.PI * 2, r = 0.35 + hash(visit + k * 17 + j * 3) * 0.75;
     pi.firstElementChild.style.translate = (Math.cos(a) * r).toFixed(2) + "px " + (Math.sin(a) * r).toFixed(2) + "px";
   }));
+
+  // the corner link ducks while reading down past the hero and comes back on the first scroll up
+  const nav = document.querySelector(".go");
+  if (nav) {
+    let last = scrollY, queued = false;
+    const turn = () => {
+      queued = false;
+      const y = scrollY, d = y - last;
+      if (Math.abs(d) < 6) return;
+      nav.classList.toggle("away", d > 0 && y > innerHeight * 0.6);
+      last = y;
+    };
+    addEventListener("scroll", () => { if (!queued) { queued = true; requestAnimationFrame(turn); } }, { passive: true });
+  }
 })();
 </script>
 </body>
