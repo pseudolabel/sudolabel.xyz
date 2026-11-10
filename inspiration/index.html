@@ -220,8 +220,9 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
 .vp-tr::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(43,26,18,.38)}
 .vp-buf{background:rgba(43,26,18,.24);transform:scaleX(var(--b,0))}
 .vp-run{background:var(--choc,#2b1a12);transform:scaleX(var(--p,0))}
-.vp-tr .vp-head{width:1.5px;height:16px;margin:-8px 0 0 -.75px;background:var(--choc,#2b1a12);left:calc(var(--p,0) * 100%)}
-.vp-head::after{content:"";position:absolute;left:-3px;top:-2px;width:7.5px;height:2px;background:inherit}
+/* whole-pixel sizes on a whole-pixel x: a fractional head is rounded differently at each spot and flickers between widths as it moves */
+.vp-tr .vp-head{width:2px;height:16px;margin:-8px 0 0 -1px;background:var(--choc,#2b1a12);left:calc(var(--p,0) * 100%);left:round(calc(var(--p,0) * 100%),1px)}
+.vp-head::after{content:"";position:absolute;left:-3px;top:-2px;width:8px;height:2px;background:inherit}
 .vp-drag .vp-head{height:20px;margin-top:-10px;background:var(--green,#0a8036)}
 .vp-tr:focus-visible{outline-offset:2px}
 .vp-t{flex:none;padding:0 10px 0 0;white-space:nowrap;letter-spacing:.01em}
@@ -239,7 +240,7 @@ h1{padding-bottom:4px;font:italic 800 clamp(40px,5.2vw,72px)/.92 "Anybody",sans-
 .vp-vt::before{content:"";position:absolute;left:50%;top:10px;bottom:10px;width:1px;margin-left:-.5px;background:rgba(43,26,18,.38)}
 .vp-vt i{position:absolute;left:50%;bottom:10px;pointer-events:none}
 .vp-vrun{width:3px;height:calc(100% - 20px);margin-left:-1.5px;background:var(--choc,#2b1a12);transform-origin:50% 100%;transform:scaleY(var(--vol,1))}
-.vp-vt .vp-vhead{width:12px;height:1.5px;margin:0 0 -.75px -6px;background:var(--choc,#2b1a12);bottom:calc(10px + (100% - 20px) * var(--vol,1))}
+.vp-vt .vp-vhead{width:12px;height:2px;margin:0 0 -1px -6px;background:var(--choc,#2b1a12);bottom:calc(10px + (100% - 20px) * var(--vol,1));bottom:round(calc(10px + (100% - 20px) * var(--vol,1)),1px)}
 .vp-vdrag .vp-vt .vp-vhead{width:16px;margin-left:-8px;background:var(--green,#0a8036)}
 .vp-bar .vp-vt:focus-visible{outline-offset:3px}
 
